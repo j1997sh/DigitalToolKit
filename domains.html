@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Domains | Campaign Platform</title>
-<link rel="stylesheet" href="assets/css/style.css?v=20260826-stage4d-privacy-imprint">
+<link rel="stylesheet" href="assets/css/style.css?v=20260826-stage5a-router">
 </head>
 <body class="app-body">
 <div class="app-shell">
@@ -29,7 +29,7 @@
 
 <main class="app-main">
 <header class="app-topbar"><h1>Domains</h1><button class="btn small" id="addDomainButton" type="button">Connect domain</button></header>
-<div class="app-content"><div class="stage4c-domain-note"><strong>Domains now target live deployments.</strong><span>A connected domain resolves only when its Website or Campaign has a live published version. Unpublishing the target takes it offline without deleting the domain connection.</span></div>
+<div class="app-content"><div class="stage4c-domain-note"><strong>Domains point only at the public hosting layer.</strong><span>The Campaign Platform admin app is separate. A connected domain resolves a live Website or Campaign deployment only; it never exposes the admin workspace.</span></div>
   <div class="page-intro"><div><h2>Domains</h2><p>Connect a custom domain to a Website or standalone Campaign microsite.</p></div></div>
   <div id="domainMessage"></div>
   <div class="domain-stage3-grid" id="domainGrid"></div>
@@ -62,7 +62,7 @@
 </dialog>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/js/supabase-config.js?v=20260826-domains-hard-fix"></script>
-<script src="assets/js/domains-stage3c-fixed.js?v=20260826-domains-hard-fix"></script>
+<script src="assets/js/supabase-config.js?v=20260826-stage5a-router"></script>
+<script src="assets/js/domains-stage5a.js?v=20260826-stage5a-hosting-router-final"></script>
 </body>
 </html>

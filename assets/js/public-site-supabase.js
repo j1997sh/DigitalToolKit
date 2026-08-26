@@ -13,13 +13,16 @@
   const sitePathIndex=pathParts.lastIndexOf('site');
   const pathSlug=sitePathIndex>=0?pathParts[sitePathIndex+1]:'';
   const wanted=new URLSearchParams(location.search).get('site')||pathSlug||localStorage.getItem('cpCurrentSiteShared')||localStorage.getItem('cpCurrentSite');
-  if(!wanted){fail('This campaign website is not available.');return}
-  const depR=await sb.rpc('public_resolve_deployment',{p_entity_type:'website',p_identifier:wanted,p_hostname:location.hostname});
-  if(depR.error){fail('This campaign website is not available.');return}
-  const deployment=depR.data,snapshot=deployment?.snapshot||{},w=snapshot.website;
+  const route=await window.CPPublicRouter.resolve('website',wanted);
+  if(!route||route.status!==200){fail(route?.reason==='unpublished'?'This campaign website is not currently published.':'This campaign website could not be found.');return}
+  const deployment=route.deployment;
+  const snapshot=deployment?.snapshot||{},w=snapshot.website;
   if(!w){fail('This campaign website is not published.');return}
   const survey=snapshot.survey||null,questions=snapshot.questions||[];
   const currentCampaign=null;
+  let heroImage='',aboutImage='';
+  if(w.hero_image_path){const r=await sb.storage.from('campaign-assets').createSignedUrl(w.hero_image_path,3600);if(!r.error)heroImage=r.data.signedUrl}
+  if(w.about_image_path){const r=await sb.storage.from('campaign-assets').createSignedUrl(w.about_image_path,3600);if(!r.error)aboutImage=r.data.signedUrl}
   const complianceR=await sb.rpc('public_privacy_config',{p_entity_type:'website',p_identifier:w.slug||w.id,p_hostname:location.hostname});const compliance=complianceR.data||{};if(window.CPAttribution){await window.CPAttribution.configure(compliance);await window.CPAttribution.track({websiteId:w.id});}
   const attributionContext=()=>window.CPAttribution?window.CPAttribution.context():{session_id:null,attribution:{},source:'website'};
 
@@ -54,8 +57,8 @@
   root.innerHTML=`<style>:root{--navy:${navy};--blue:${blue}}</style>
   <header class="pub-header"><div class="pub-container"><div class="pub-id"><span class="pub-roundel">${esc(initials)}</span><span><strong>${esc(name)}</strong><small>Candidate for ${esc(area)}</small></span></div><nav><a href="#about">About</a><a href="#priorities">Priorities</a>${survey?'<a href="#survey">Have your say</a>':''}${currentCampaign?'<a href="#campaign">Campaign</a>':''}</nav></div></header>
   <main>
-    <section class="pub-hero"><div class="pub-container"><div><h1>${esc(hero)}</h1><p>${esc(heroCopy)}</p>${survey?'<a class="pub-btn" href="#survey">Tell us what matters</a>':''}</div></div></section>
-    <section class="pub-section" id="about"><div class="pub-container"><h2>${esc(aboutHeadline)}</h2><p class="pub-lead">${esc(aboutLead)}</p>${flat?.aboutCopy?`<p>${esc(flat.aboutCopy)}</p>`:''}</div></section>
+    <section class="pub-hero"><div class="pub-container"><div><h1>${esc(hero)}</h1><p>${esc(heroCopy)}</p>${survey?'<a class="pub-btn" href="#survey">Tell us what matters</a>':''}</div>${heroImage?`<img class="pub-live-hero-image" src="${heroImage}" alt="">`:''}</div></section>
+    <section class="pub-section" id="about"><div class="pub-container pub-about-live"><div><h2>${esc(aboutHeadline)}</h2><p class="pub-lead">${esc(aboutLead)}</p>${flat?.aboutCopy?`<p>${esc(flat.aboutCopy)}</p>`:''}</div>${aboutImage?`<img class="pub-live-about-image" src="${aboutImage}" alt="">`:''}</div></section>
     <section class="pub-section alt" id="priorities"><div class="pub-container"><h2>${esc(first)}’s priorities</h2><div class="pub-grid">${priorities.map(p=>`<article><h3>${esc(p.title)}</h3><p>${esc(p.copy||'')}</p></article>`).join('')}</div></div></section>
     ${survey?`<section class="pub-section" id="survey"><div class="pub-container"><h2>${esc(survey.name)}</h2><p class="pub-lead">Tell ${esc(first)} what matters most locally.</p><form class="pub-form"><div class="two"><input name="first_name" placeholder="First name"><input name="last_name" placeholder="Last name"><input class="full" name="email" type="email" placeholder="Email address"><input class="full" name="address_line1" placeholder="House number and street" required><input class="full" name="address_line2" placeholder="Address line 2"><input name="town_city" placeholder="Town / city" required><input name="postcode" placeholder="Postcode" required></div>${questions.filter(q=>q.enabled).map(question).join('')}<button class="pub-btn" type="submit">Send my views</button><p class="form-note">Your information will be stored securely by the campaign.</p></form></div></section>`:''}
     ${currentCampaign?`<section class="pub-section alt" id="campaign"><div class="pub-container"><h2>${esc(campaignTitle)}</h2><p class="pub-lead">${esc(campaignCopy)}</p><form class="pub-action-form" data-action="campaign_back"><div class="two"><input name="first_name" placeholder="First name"><input name="last_name" placeholder="Last name"><input class="full" name="email" type="email" placeholder="Email address"><input class="full" name="address_line1" placeholder="House number and street" required><input class="full" name="address_line2" placeholder="Address line 2"><input name="town_city" placeholder="Town / city" required><input name="postcode" placeholder="Postcode" required></div><label class="form-note"><input type="checkbox" name="consent_email" value="true"> I would like to receive campaign updates by email.</label><button class="pub-btn" type="submit">Back the campaign</button></form></div></section>`:''}
