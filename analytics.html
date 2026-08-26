@@ -1,0 +1,42 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Analytics | Campaign Platform</title><link rel="stylesheet" href="assets/css/style.css?v=20260826-stage4d-privacy-imprint"></head>
+<body><div class="app-shell"><aside class="app-sidebar">
+      <div class="brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Workspace</small></span></div>
+      <div class="workspace-select">
+        <strong id="sidebarSiteName">Joe Bloggs</strong><small id="sidebarSiteMeta">Bloggs Ward</small>
+      </div>
+      <nav class="side-nav"><a href="dashboard.html">Dashboard</a><a class="active" href="analytics.html">Analytics</a><a href="websites.html">Websites</a><a href="campaigns.html">Campaigns</a><a href="creative.html">Creative</a><a href="people.html">People</a><a href="surveys.html">Surveys</a><a href="domains.html">Domains</a><a href="integrations.html">Integrations</a><a href="settings.html">Settings</a></nav>
+      <div class="side-bottom">
+        <div class="user-chip"><span class="avatar">JB</span><span><strong>Joe Bloggs</strong><small>Signed in</small></span></div>
+        <a class="side-nav logout-link" style="padding:10px 12px;display:block" href="login.html" id="logoutLink">Log out</a>
+      </div>
+    </aside><main class="app-main">
+<header class="topbar"><div><h1>Analytics</h1></div></header>
+<div class="app-content">
+<div class="page-intro"><div><h2>Campaign analytics</h2><p>See how people are finding your campaign and what turns visits into supporters.</p></div></div>
+<div id="localAnalyticsMessage"></div>
+<section class="panel analytics-summary-panel">
+<div class="analytics-toolbar"><div class="performance-range"><button data-days="7">7 days</button><button class="active" data-days="30">30 days</button><button data-days="90">90 days</button></div></div>
+<div class="performance-kpis" id="localAnalyticsKpis"></div>
+<div class="analytics-chart-head"><div><h3>Traffic & conversions</h3><p class="muted">Sessions, visitors and converted sessions over time.</p></div></div>
+<div id="localAnalyticsTrend"></div>
+</section>
+
+<div class="dashboard-grid analytics-source-grid">
+<section class="panel"><div class="panel-head"><div><h3>Top sources</h3><p class="muted">First-touch acquisition source.</p></div></div><div id="localSources"></div></section>
+<section class="panel"><div class="panel-head"><div><h3>Top mediums</h3><p class="muted">Paid, email, organic and other traffic.</p></div></div><div id="localMediums"></div></section>
+<section class="panel"><div class="panel-head"><div><h3>UTM campaigns</h3><p class="muted">Tagged campaign performance.</p></div></div><div id="localUtmCampaigns"></div></section>
+<section class="panel"><div class="panel-head"><div><h3>Landing pages</h3><p class="muted">Where tracked sessions started.</p></div></div><div id="localLandings"></div></section>
+</div>
+
+<section class="panel" style="margin-top:16px"><div class="panel-head"><div><h3>Websites, Campaigns & Surveys</h3><p class="muted">Real tracked sessions and conversions by asset.</p></div></div>
+<div class="performance-table-wrap"><table class="performance-table"><thead><tr><th>Type</th><th>Name</th><th>Sessions</th><th>Visitors</th><th>Page views</th><th>Conversions</th><th>Conversion rate</th></tr></thead><tbody id="localAssetRows"></tbody></table></div></section>
+
+<section class="panel" style="margin-top:16px"><div class="panel-head"><div><h3>Recent conversions</h3><p class="muted">The latest known supporters and the attribution attached to their conversion.</p></div></div><div id="localRecentConversions"></div></section>
+
+<p class="performance-footnote">Campaign conversion is tracked session → known supporter. Survey conversion uses sessions to the Website carrying that Survey as the denominator.</p>
+</div></main></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260826-stage4b-local-analytics"></script>
+<script src="assets/js/analytics-stage4b.js?v=20260826-stage4b-local-analytics"></script>
+</body></html>

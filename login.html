@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Log in | Campaign Platform</title>
+<link rel="stylesheet" href="assets/css/style.css?v=20260826-stage4d-privacy-imprint">
+</head>
+<body class="auth-page">
+<main class="auth-shell">
+  <section class="auth-card">
+    <div class="auth-brand">
+      <span class="brand-mark">CP</span>
+      <div>
+        <strong>Campaign Platform</strong>
+      </div>
+    </div>
+
+    <div class="auth-heading">
+      <h1>Log in</h1>
+      <p>Welcome back to your campaign workspace.</p>
+    </div>
+
+    <form data-stage2-login class="auth-form">
+      <label class="field">
+        <span>Email address</span>
+        <input type="email" placeholder="Email address" autocomplete="email" required>
+      </label>
+      <label class="field">
+        <span>Password</span>
+        <input type="password" placeholder="Password" autocomplete="current-password" required>
+      </label>
+      <button class="btn auth-submit" type="submit">Log in</button>
+    </form>
+
+    <div class="auth-links">
+      <a href="forgot-password.html">Forgotten password?</a>
+      <span>New here? <a href="signup.html">Create an account</a></span>
+    </div>
+  <div class="auth-admin-entry">
+  <div><strong>Organisation or party administrator?</strong><span>Use the separate HQ console for the whole campaign network.</span></div>
+  <a class="btn secondary small" href="admin-login.html">Organisation admin</a>
+</div></section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260826-centered-auth"></script>
+<script src="assets/js/app.js?v=20260826-website-switcher-creative-image"></script>
+<script src="assets/js/supabase-backend.js?v=20260826-stage4c-publishing"></script>
+</body>
+</html>

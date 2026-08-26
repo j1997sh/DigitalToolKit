@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Website editor | Campaign Platform</title>
+<link rel="stylesheet" href="assets/css/style.css?v=20260826-stage4d-privacy-imprint">
+</head>
+<body class="app-body">
+<div class="app-shell">
+<aside class="app-sidebar">
+  <div class="brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Workspace</small></span></div>
+  <div class="workspace-select" id="websiteSidebarIdentity"><strong>Website</strong><small>Loading…</small></div>
+  <nav class="side-nav">
+    <a href="dashboard.html">Dashboard</a><a href="analytics.html" data-nav="analytics">Analytics</a>
+    <a class="active" href="websites.html">Websites</a>
+    <a href="campaigns.html">Campaigns</a>
+    <a href="creative.html">Creative</a>
+    <a href="people.html">People</a>
+    <a href="surveys.html">Surveys</a>
+    <a href="domains.html">Domains</a>
+    <a href="integrations.html">Integrations</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+  <div class="side-bottom"><div class="user-chip" id="websiteEditorUser"><span class="avatar">—</span><span><strong>Signed in</strong><small>Account</small></span></div><a class="logout-link" id="websiteEditorLogout" href="login.html">Log out</a></div>
+</aside>
+<main class="app-main">
+<header class="app-topbar">
+  <div><small class="app-topbar-kicker">Website</small><h1 id="weTopTitle">Editor</h1></div>
+  <div class="button-row"><a class="btn secondary small" href="websites.html">All websites</a><button class="btn secondary small" id="wePreviewButton">Preview</button><button class="btn small" id="wePublishButton">Publish</button></div>
+</header>
+<div class="app-content website-editor-page">
+  <div class="editor-scope-note"><strong>Website editor</strong><span>Edit the main candidate website.</span><span class="autosave-standard" id="weSaveState"><span class="dot"></span><span>Saved</span></span></div>
+  <div class="website-editor-toolbar">
+    <div class="website-editor-switch">
+      <label for="weWebsiteSelect">Editing website</label>
+      <select id="weWebsiteSelect" aria-label="Editing website"></select>
+    </div>
+    <div class="website-editor-switch">
+      <label for="weSurveyToolbar">Website survey</label>
+      <select id="weSurveyToolbar" aria-label="Website survey"></select>
+    </div>
+    <div class="campaign-editor-view-switch"><button class="view-chip active" data-we-width="desktop">Desktop</button><button class="view-chip" data-we-width="tablet">Tablet</button><button class="view-chip" data-we-width="mobile">Mobile</button></div>
+  </div>
+  <div id="weError" class="state-banner error" hidden></div>
+  <div class="website-editor-shell">
+    <section class="website-editor-canvas">
+      <div class="website-device desktop" id="weDevice">
+        <iframe id="weFrame" title="Website preview"></iframe>
+        <div id="weHotspots" class="website-hotspot-layer"></div>
+      </div>
+    </section>
+    <aside class="website-editor-panel">
+      <div id="wePanelEmpty" class="campaign-panel-empty"><h3>Edit your website</h3><p>Click any section in the preview to edit it.</p><div id="weSummary" class="campaign-editor-summary"></div></div>
+      <div id="wePanelContent" hidden></div>
+    </aside>
+  </div>
+</div>
+</main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260826-website-editor-fix"></script>
+<script src="assets/js/website-editor-stage2.js?v=20260826-stage4c-publishing"></script>
+</body>
+</html>

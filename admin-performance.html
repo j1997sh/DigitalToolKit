@@ -1,0 +1,49 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Performance | Campaign Platform HQ</title><link rel="stylesheet" href="assets/css/style.css?v=20260826-stage4d-privacy-imprint"></head>
+<body class="admin-body"><div class="admin-shell"><aside class="admin-sidebar">
+<div class="admin-brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Organisation Admin</small></span></div>
+<div class="admin-org-chip"><small>Organisation</small><strong data-admin-org-name>Loading…</strong></div>
+<nav class="admin-nav"><a href="admin-dashboard.html" data-admin-nav="overview">Overview</a><a href="admin-accounts.html" data-admin-nav="accounts">Local accounts</a><a href="admin-performance.html" data-admin-nav="performance">Performance</a><a href="admin-attribution.html" data-admin-nav="attribution">Attribution</a><a href="admin-geography.html" data-admin-nav="geography">Geography</a><a href="admin-data.html" data-admin-nav="data">Supporter data</a><a href="admin-integrations.html" data-admin-nav="integrations">Central CRM</a><a href="admin-activity.html" data-admin-nav="activity">Network activity</a><a href="admin-privacy.html" data-admin-nav="privacy">Privacy</a></nav>
+<div class="admin-sidebar-bottom"><a href="dashboard.html">Open local workspace</a><button id="adminLogout" type="button">Log out</button></div>
+</aside><main class="admin-main">
+<header class="admin-topbar"><div><small>Organisation Admin</small><h1>Performance</h1></div><span class="admin-role-badge" id="adminRoleBadge">Admin</span></header>
+<div class="admin-content">
+<section class="admin-intro"><div><h2>Network performance</h2><p>Growth, geography and campaign participation across the organisation.</p></div></section>
+<div id="performanceMessage"></div>
+
+<section class="admin-panel performance-hero-panel">
+ <div class="performance-toolbar"><div class="performance-range" role="group" aria-label="Trend range">
+  <button type="button" data-range="7">7 days</button><button type="button" data-range="30">30 days</button><button class="active" type="button" data-range="90">90 days</button>
+ </div><div class="performance-updated" id="performanceUpdated"></div></div>
+ <div class="performance-kpis" id="performanceKpis"></div>
+ <div class="performance-chart-wrap"><div class="performance-chart-head"><div><h3>Supporter growth</h3><p>New People added each day.</p></div></div><div id="growthChart"></div></div>
+ <div class="performance-mini-grid">
+  <div><h4>Supporter actions</h4><div id="actionsChart"></div></div>
+  <div><h4>Survey responses</h4><div id="responsesChart"></div></div>
+ </div>
+</section>
+
+<div class="admin-two-col performance-callouts">
+ <section class="admin-panel"><div class="admin-panel-head"><div><h3>Fastest-growing constituencies</h3><p>Last 30 days compared with the previous 30.</p></div></div><div id="fastGrowth"></div></section>
+ <section class="admin-panel"><div class="admin-panel-head"><div><h3>Strongest consent rates</h3><p>Email opt-in among known People.</p></div></div><div id="consentLeaders"></div></section>
+</div>
+
+<section class="admin-panel">
+ <div class="admin-panel-head"><div><h3>Geographic performance</h3><p>Growth, consent, issue profile and campaign activity by constituency.</p></div></div>
+ <div class="performance-filter-row"><input id="geoPerformanceSearch" placeholder="Filter constituencies…"><select id="geoPerformanceSort"><option value="new_30d">Newest supporters</option><option value="growth_rate">Growth rate</option><option value="people">Total People</option><option value="consent_rate">Consent rate</option><option value="campaign_backers">Campaign backers</option></select></div>
+ <div class="performance-table-wrap"><table class="performance-table"><thead><tr><th>Constituency</th><th>People</th><th>7d</th><th>30d</th><th>Growth</th><th>Consent</th><th>Campaign backers</th><th>Responses</th><th>Top issue</th></tr></thead><tbody id="geoPerformanceRows"></tbody></table></div>
+</section>
+
+<section class="admin-panel">
+ <div class="admin-panel-head"><div><h3>Local account performance</h3><p>Known People, recent growth, consent and campaign participation by workspace.</p></div></div>
+ <div class="performance-filter-row"><input id="accountPerformanceSearch" placeholder="Filter local accounts…"><select id="accountPerformanceSort"><option value="new_30d">Newest supporters</option><option value="campaign_participation_rate">Campaign participation</option><option value="people">Total People</option><option value="consent_rate">Consent rate</option><option value="actions">Activity</option></select></div>
+ <div class="performance-table-wrap"><table class="performance-table"><thead><tr><th>Local account</th><th>People</th><th>New 30d</th><th>Actions</th><th>Responses</th><th>Campaign backers</th><th>Volunteers</th><th>Consent</th><th>Campaign participation</th><th>Top issue</th></tr></thead><tbody id="accountPerformanceRows"></tbody></table></div>
+ <p class="performance-footnote">Campaign participation = known People in that local account who have a recorded campaign-back action. Visitor-to-signup conversion will require page-view tracking.</p>
+</section>
+</div></main></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260826-stage3e"></script>
+<script src="assets/js/admin-shared-stage3c.js?v=20260826-stage3e"></script>
+<script>window.CP_ADMIN_ACTIVE="performance";</script>
+<script src="assets/js/admin-performance-stage3e.js?v=20260826-stage3e"></script>
+</body></html>

@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Settings | Campaign Platform</title><link rel="stylesheet" href="assets/css/style.css?v=20260826-stage4d-privacy-imprint"></head>
+<body class="app-body"><div class="app-shell"><aside class="app-sidebar">
+      <div class="brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Workspace</small></span></div>
+      <div class="workspace-select">
+        <strong id="sidebarSiteName">Joe Bloggs</strong><small id="sidebarSiteMeta">Bloggs Ward</small>
+      </div>
+      <nav class="side-nav"><a href="dashboard.html">Dashboard</a><a href="analytics.html" data-nav="analytics">Analytics</a><a href="websites.html">Websites</a><a href="campaigns.html">Campaigns</a><a href="creative.html">Creative</a><a href="people.html">People</a><a href="surveys.html">Surveys</a><a href="domains.html">Domains</a><a href="integrations.html">Integrations</a><a class="active" href="settings.html">Settings</a></nav>
+      <div class="side-bottom">
+        <div class="user-chip"><span class="avatar">JB</span><span><strong>Joe Bloggs</strong><small>Signed in</small></span></div>
+        <a class="side-nav logout-link" style="padding:10px 12px;display:block" href="login.html" id="logoutLink">Log out</a>
+      </div>
+    </aside><main class="app-main"><header class="app-topbar"><h1>Settings</h1>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="global-search-wrap">
+            <input class="global-search-input" id="globalSearchInput" placeholder="Search people or websites">
+            <span class="global-search-kbd">⌘K</span>
+            <div class="search-popover" id="globalSearchPopover"></div>
+          </div>
+          <a class="btn secondary small" href="public-site.html">View public site</a>
+        </div></header><div class="app-content">
+<div class="page-intro"><div><h2>Settings</h2><p>Your account and data settings.</p></div><button class="btn small" data-save>Save changes</button></div>
+<div class="settings-grid">
+<section class="settings-card"><h3>Account</h3><label class="field"><span>Your name</span><input value="Joe Bloggs"></label><label class="field" style="margin-top:12px"><span>Email</span><input value="joe@example.org"></label></section>
+<section class="settings-card"><h3>Data & privacy</h3><p class="muted">Consent language, privacy URL and supporter exports.</p><div class="sensitive-note">Voting intention is political-opinion data and should have restricted handling in the production system.</div><label class="field" style="margin-top:12px"><span>Privacy policy URL</span><input value="https://example.org/privacy"></label></section>
+<section class="settings-card"><h3>Export</h3><p class="muted">Download your supporter data or website configuration.</p><button class="btn secondary small">Export supporter CSV</button></section>
+<section class="settings-card"><h3>Account access</h3><p class="muted">This product is designed for a single account owner in this version.</p><a class="btn secondary small" href="login.html">Log out</a></section>
+</div>
+</div></main></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="assets/js/supabase-config.js?v=20260826-centered-auth"></script><script src="assets/js/app.js?v=20260826-website-switcher-creative-image"></script><script src="assets/js/supabase-backend.js?v=20260826-stage4c-publishing"></script><script src="assets/js/compliance-stage4d.js?v=20260826-stage4d-privacy-imprint"></script></body></html>

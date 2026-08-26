@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>New campaign | Campaign Platform</title>
+<link rel="stylesheet" href="assets/css/style.css?v=20260826-stage4d-privacy-imprint">
+</head>
+<body class="app-body">
+<div class="app-shell">
+<aside class="app-sidebar">
+  <div class="brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Workspace</small></span></div>
+  <nav class="side-nav">
+    <a href="dashboard.html">Dashboard</a><a href="analytics.html" data-nav="analytics">Analytics</a>
+    <a href="websites.html">Websites</a>
+    <a class="active" href="campaigns.html">Campaigns</a>
+    <a href="creative.html">Creative</a>
+    <a href="people.html">People</a>
+    <a href="surveys.html">Surveys</a>
+    <a href="domains.html">Domains</a>
+    <a href="integrations.html">Integrations</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+  <div class="side-bottom"><a class="side-nav logout-link" style="padding:10px 12px;display:block" href="login.html">Log out</a></div>
+</aside>
+<main class="app-main">
+<header class="app-topbar"><div><h1>New campaign</h1></div><a class="btn secondary small" href="campaigns.html">Cancel</a></header>
+<div class="app-content">
+  <section class="create-flow standalone-create-card">
+    <div class="create-flow-intro">
+      <h2>Create a campaign microsite</h2>
+      <p>A standalone campaign page with its own branding, signup and public URL.</p>
+    </div>
+    <form id="standaloneCampaignCreate">
+      <label class="field"><span>Campaign name</span><input id="campaignCreateName" placeholder="e.g. Save Winter Fuel" required></label>
+      <button class="btn" id="campaignCreateSubmit" type="submit">Create campaign</button>
+      <div id="campaignCreateMessage"></div>
+    </form>
+  </section>
+</div>
+</main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260826-standalone-campaign-product"></script>
+<script src="assets/js/campaign-create-stage2.js?v=20260826-standalone-campaign-product"></script>
+</body>
+</html>

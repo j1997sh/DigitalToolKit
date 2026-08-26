@@ -1,0 +1,62 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dashboard | Campaign Platform</title><link rel="stylesheet" href="assets/css/style.css?v=20260826-stage4d-privacy-imprint"></head>
+<body class="app-body"><div class="app-shell"><aside class="app-sidebar">
+      <div class="brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Workspace</small></span></div>
+      <div class="workspace-select">
+        <strong id="sidebarSiteName">Joe Bloggs</strong><small id="sidebarSiteMeta">Bloggs Ward</small>
+      </div>
+      <nav class="side-nav"><a class="active" href="dashboard.html">Dashboard</a><a href="analytics.html">Analytics</a><a href="websites.html">Websites</a><a href="campaigns.html">Campaigns</a><a href="creative.html">Creative</a><a href="people.html">People</a><a href="surveys.html">Surveys</a><a href="domains.html">Domains</a><a href="integrations.html">Integrations</a><a href="settings.html">Settings</a></nav>
+      <div class="side-bottom">
+        <div class="user-chip"><span class="avatar">JB</span><span><strong>Joe Bloggs</strong><small>Signed in</small></span></div>
+        <a class="side-nav logout-link" style="padding:10px 12px;display:block" href="login.html" id="logoutLink">Log out</a>
+      </div>
+    </aside><main class="app-main"><header class="app-topbar"><h1>Dashboard</h1>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="global-search-wrap">
+            <input class="global-search-input" id="globalSearchInput" placeholder="Search people or websites">
+            <span class="global-search-kbd">⌘K</span>
+            <div class="search-popover" id="globalSearchPopover"></div>
+          </div>
+          <a class="btn secondary small" href="public-site.html">View public site</a>
+        </div></header><div class="app-content">
+<div class="page-intro"><div><h2>Good afternoon, Joe.</h2><p>Here’s what is happening across your campaign.</p></div><div class="button-row"><a class="btn secondary small" href="campaigns.html">New campaign</a><a class="btn small" href="editor.html?site=joe-bloggs">Edit website</a></div></div>
+
+<div class="kpi-grid campaign-kpis">
+  <a class="card kpi drill-link" href="people.html"><strong id="dashSupporters">0</strong><span>Supporters</span></a>
+  <a class="card kpi drill-link" href="campaigns.html"><strong id="dashCampaignBackers">0</strong><span>Campaign backers</span></a>
+  <a class="card kpi drill-link" href="surveys.html"><strong id="dashSurveyResponses">0</strong><span>Survey responses</span></a>
+  <a class="card kpi drill-link" href="people.html?volunteer=Leaflets"><strong id="dashVolunteers">0</strong><span>Volunteer offers</span></a>
+</div>
+
+<div class="dashboard-grid" style="margin-top:16px">
+  <section class="panel">
+    <div class="panel-head"><div><h3>Active campaigns</h3><p class="muted">Campaigns and supporter activity</p></div><a class="btn secondary small" href="campaigns.html">View all</a></div>
+    <div id="dashCampaignList"></div>
+  </section>
+  <section class="panel">
+    <div class="panel-head"><div><h3>Website</h3><p class="muted">Website</p></div></div>
+    <div id="dashWebsiteStatus"></div>
+  </section>
+</div>
+
+<div class="dashboard-grid" style="margin-top:16px">
+  <section class="panel">
+    <div class="panel-head"><div><h3>Recent supporter activity</h3><p class="muted">Across website, campaigns and surveys</p></div></div>
+    <div id="dashRecentActivity"></div>
+  </section>
+  <section class="panel">
+    <div class="panel-head"><div><h3>Surveys</h3><p class="muted">Survey responses</p></div><a class="btn secondary small" href="surveys.html">Manage</a></div>
+    <div id="dashSurveyList"></div>
+  </section>
+</div>
+
+<div class="dashboard-grid" style="margin-top:16px">
+  <section class="panel">
+    <div class="panel-head"><div><h3>Creative</h3><p class="muted">Saved campaign graphics</p></div><a class="btn secondary small" href="creative.html">Open Creative</a></div>
+    <div id="dashCreativeSummary"></div>
+  </section>
+  <section class="panel">
+    <div class="panel-head"><div><h3>Integrations</h3><p class="muted">External CRM sync</p></div><a class="btn secondary small" href="integrations.html">Integrations</a></div>
+    <div id="dashIntegrationSummary"></div>
+  </section>
+</div>
+</div></main></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="assets/js/supabase-config.js?v=20260826-centered-auth"></script><script src="assets/js/app.js?v=20260826-website-switcher-creative-image"></script><script src="assets/js/supabase-backend.js?v=20260826-stage4c-publishing"></script></body></html>

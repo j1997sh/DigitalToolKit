@@ -1,0 +1,31 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Overview | Campaign Platform HQ</title><link rel="stylesheet" href="assets/css/style.css?v=20260826-stage4d-privacy-imprint"></head><body class="admin-body"><div class="admin-shell"><aside class="admin-sidebar">
+<div class="admin-brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Organisation Admin</small></span></div>
+<div class="admin-org-chip"><small>Organisation</small><strong data-admin-org-name>Loading…</strong></div>
+<nav class="admin-nav"><a href="admin-dashboard.html" data-admin-nav="overview">Overview</a><a href="admin-accounts.html" data-admin-nav="accounts">Local accounts</a><a href="admin-performance.html" data-admin-nav="performance">Performance</a><a href="admin-attribution.html" data-admin-nav="attribution">Attribution</a><a href="admin-geography.html" data-admin-nav="geography">Geography</a><a href="admin-data.html" data-admin-nav="data">Supporter data</a><a href="admin-integrations.html" data-admin-nav="integrations">Central CRM</a><a href="admin-activity.html" data-admin-nav="activity">Network activity</a><a href="admin-privacy.html" data-admin-nav="privacy">Privacy</a></nav>
+<div class="admin-sidebar-bottom"><a href="dashboard.html">Open local workspace</a><button id="adminLogout" type="button">Log out</button></div>
+</aside><main class="admin-main"><header class="admin-topbar"><div><small>Organisation Admin</small><h1>Overview</h1></div><span class="admin-role-badge" id="adminRoleBadge">Admin</span></header><div class="admin-content"><div id="adminDashboardMessage"></div><section class="admin-intro"><div><h2>Campaign network</h2><p>A central view of every local Campaign Platform account in the organisation.</p></div></section>
+<div class="admin-kpi-grid" id="adminKpis"></div>
+<section class="admin-panel dashboard-performance-strip">
+<div class="admin-panel-head"><div><h3>Recent performance</h3><p>Growth and campaign activity across the network.</p></div><a href="admin-performance.html">Explore performance</a></div>
+<div id="dashboardPerformance"></div>
+</section><div class="admin-two-col"><section class="admin-panel"><div class="admin-panel-head"><div><h3>Local accounts</h3><p>Activity across the network.</p></div><a href="admin-accounts.html">View all</a></div><div id="adminAccountPreview"></div></section><section class="admin-panel"><div class="admin-panel-head"><div><h3>Central data flow</h3><p>Organisation-level CRM sync.</p></div><a href="admin-integrations.html">Manage</a></div><div id="adminIntegrationPreview"></div></section></div><section class="admin-panel"><div class="admin-panel-head"><div><h3>Recent network activity</h3></div><a href="admin-activity.html">View activity</a></div><div id="adminRecentActivity"></div></section><section class="admin-panel admin-geo-teaser"><div class="admin-panel-head"><div><h3>Geography</h3><p>Where supporters live across the organisation.</p></div><a href="admin-geography.html">Explore geography</a></div><div id="adminGeoTeaser"></div></section><section class="admin-panel">
+  <div class="admin-panel-head"><div><h3>Network data</h3><p>Where supporter data is coming from and what it contains.</p></div></div>
+  <div class="admin-insight-grid">
+    <div class="admin-insight-card"><h4>Email consent</h4><div id="adminConsentBreakdown"></div></div>
+    <div class="admin-insight-card"><h4>Acquisition sources</h4><div id="adminSourceBreakdown"></div></div>
+    <div class="admin-insight-card"><h4>Top tags</h4><div id="adminTagBreakdown"></div></div>
+    <div class="admin-insight-card"><h4>Voting intention</h4><div id="adminVotingBreakdown"></div></div>
+  </div>
+</section>
+<section class="admin-panel">
+  <div class="admin-panel-head"><div><h3>What is generating data</h3><p>Website, Campaign and Survey performance across the organisation.</p></div></div>
+  <div class="admin-data-source-grid">
+    <div><h4>Websites</h4><div id="adminWebsitePerformance"></div></div>
+    <div><h4>Campaigns</h4><div id="adminCampaignPerformance"></div></div>
+    <div><h4>Surveys</h4><div id="adminSurveyPerformance"></div></div>
+  </div>
+</section>
+<section class="admin-panel">
+  <div class="admin-panel-head"><div><h3>Latest supporter journeys</h3><p>Origin, action, consent and tags in one view.</p></div><a href="admin-activity.html">View all</a></div>
+  <div id="adminSupporterJourneys"></div>
+</section></div></main></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="assets/js/supabase-config.js?v=20260826-org-admin"></script><script src="assets/js/admin-shared-stage3c.js?v=20260826-org-admin"></script><script>window.CP_ADMIN_ACTIVE="overview";</script><script src="assets/js/admin-dashboard-stage3c.js?v=20260826-stage3e"></script></body></html>

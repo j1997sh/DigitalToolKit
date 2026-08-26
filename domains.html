@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Domains | Campaign Platform</title>
+<link rel="stylesheet" href="assets/css/style.css?v=20260826-stage4d-privacy-imprint">
+</head>
+<body class="app-body">
+<div class="app-shell">
+<aside class="app-sidebar">
+  <div class="brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Workspace</small></span></div>
+  <nav class="side-nav">
+    <a href="dashboard.html">Dashboard</a><a href="analytics.html" data-nav="analytics">Analytics</a>
+    <a href="websites.html">Websites</a>
+    <a href="campaigns.html">Campaigns</a>
+    <a href="creative.html">Creative</a>
+    <a href="people.html">People</a>
+    <a href="surveys.html">Surveys</a>
+    <a class="active" href="domains.html">Domains</a>
+    <a href="integrations.html">Integrations</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+  <div class="side-bottom">
+    <div class="user-chip"><span class="avatar" id="domainAccountInitials">—</span><span><strong id="domainAccountName">Signed in</strong><small>Signed in</small></span></div>
+    <a class="logout-link" id="domainLogout" href="login.html">Log out</a>
+  </div>
+</aside>
+
+<main class="app-main">
+<header class="app-topbar"><h1>Domains</h1><button class="btn small" id="addDomainButton" type="button">Connect domain</button></header>
+<div class="app-content"><div class="stage4c-domain-note"><strong>Domains now target live deployments.</strong><span>A connected domain resolves only when its Website or Campaign has a live published version. Unpublishing the target takes it offline without deleting the domain connection.</span></div>
+  <div class="page-intro"><div><h2>Domains</h2><p>Connect a custom domain to a Website or standalone Campaign microsite.</p></div></div>
+  <div id="domainMessage"></div>
+  <div class="domain-stage3-grid" id="domainGrid"></div>
+</div>
+</main>
+</div>
+
+<dialog class="domain-native-dialog" id="domainDialog">
+  <div class="domain-native-dialog-inner">
+    <div class="cp-dialog-head">
+      <h3>Connect domain</h3>
+      <button class="cp-dialog-x" id="domainDialogClose" type="button" aria-label="Close">×</button>
+    </div>
+    <form id="domainForm" novalidate>
+      <label class="field"><span>Domain</span><input id="domainHostname" placeholder="example.org" autocomplete="off"></label>
+      <label class="field"><span>Connect to</span>
+        <select id="domainTargetType">
+          <option value="website">Website</option>
+          <option value="campaign">Campaign microsite</option>
+        </select>
+      </label>
+      <label class="field"><span>Choose item</span><select id="domainTargetId"></select></label>
+      <div id="domainFormMessage"></div>
+      <div class="cp-dialog-actions">
+        <button class="btn secondary" type="button" id="domainCancel">Cancel</button>
+        <button class="btn" type="submit" id="domainSubmit">Add domain</button>
+      </div>
+    </form>
+  </div>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260826-domains-hard-fix"></script>
+<script src="assets/js/domains-stage3c-fixed.js?v=20260826-domains-hard-fix"></script>
+</body>
+</html>

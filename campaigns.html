@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Campaigns | Campaign Platform</title>
+<link rel="stylesheet" href="assets/css/style.css?v=20260826-stage4d-privacy-imprint">
+</head>
+<body class="app-body">
+<div class="app-shell">
+  <aside class="app-sidebar">
+    <div class="brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Workspace</small></span></div>
+    <nav class="side-nav">
+      <a href="dashboard.html">Dashboard</a><a href="analytics.html" data-nav="analytics">Analytics</a>
+      <a href="websites.html">Websites</a>
+      <a class="active" href="campaigns.html">Campaigns</a>
+      <a href="creative.html">Creative</a>
+      <a href="people.html">People</a>
+      <a href="surveys.html">Surveys</a>
+      <a href="domains.html">Domains</a>
+      <a href="integrations.html">Integrations</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <div class="side-bottom">
+      <div class="user-chip"><span class="avatar" id="campaignAccountInitials">—</span><span><strong id="campaignAccountName">Signed in</strong><small>Signed in</small></span></div>
+      <a class="logout-link" id="campaignLogout" href="login.html">Log out</a>
+    </div>
+  </aside>
+
+  <main class="app-main">
+    <header class="app-topbar">
+      <h1>Campaigns</h1>
+      <a class="btn small" href="campaign-create.html">New campaign</a>
+    </header>
+    <div class="app-content">
+      <div class="page-intro">
+        <div>
+          <h2>Campaign microsites</h2>
+          <p>Create and manage standalone campaign pages.</p>
+        </div>
+      </div>
+      <div id="campaignLibraryMessage"></div>
+      <div class="campaign-grid" id="standaloneCampaignGrid"></div>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260826-campaign-delete-clean"></script>
+<script src="assets/js/campaigns-stage2.js?v=20260826-campaign-delete-clean"></script>
+</body>
+</html>

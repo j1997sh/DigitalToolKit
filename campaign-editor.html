@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Campaign microsite editor | Campaign Platform</title>
+<link rel="stylesheet" href="assets/css/style.css?v=20260826-stage4d-privacy-imprint">
+</head>
+<body class="app-body">
+<div class="app-shell">
+<aside class="app-sidebar">
+  <div class="brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Workspace</small></span></div>
+  <nav class="side-nav">
+    <a href="dashboard.html">Dashboard</a><a href="analytics.html" data-nav="analytics">Analytics</a><a href="websites.html">Websites</a><a class="active" href="campaigns.html">Campaigns</a><a href="creative.html">Creative</a><a href="people.html">People</a><a href="surveys.html">Surveys</a><a href="domains.html">Domains</a><a href="integrations.html">Integrations</a><a href="settings.html">Settings</a>
+  </nav>
+  <div class="side-bottom"><a class="side-nav logout-link" style="padding:10px 12px;display:block" href="login.html">Log out</a></div>
+</aside>
+<main class="app-main">
+<header class="app-topbar">
+  <div><small class="app-topbar-kicker">Campaign microsite</small><h1 id="cmTopTitle">Editor</h1></div>
+  <div class="button-row"><button class="btn secondary small" id="cmBrandButton">Brand</button><button class="btn secondary small" id="cmPreviewButton">Preview</button><button class="btn small" id="cmPublishButton">Publish</button></div>
+</header>
+<div class="app-content campaign-editor-page">
+  <div class="editor-scope-note"><strong>Standalone campaign microsite</strong><span>This campaign is completely separate from Websites.</span><span class="autosave-standard" id="cmSaveState"><span class="dot"></span><span>Saved</span></span></div>
+  <div class="campaign-editor-toolbar"><a class="text-button" id="cmBackLink" href="campaigns.html">← Back to campaign</a><div class="campaign-editor-view-switch"><button class="view-chip active" data-width="desktop">Desktop</button><button class="view-chip" data-width="tablet">Tablet</button><button class="view-chip" data-width="mobile">Mobile</button></div></div>
+  <div id="cmError" class="state-banner error" hidden></div>
+  <div class="campaign-editor-shell-standalone">
+    <section class="campaign-editor-canvas"><div class="campaign-device desktop" id="cmDevice"><iframe id="cmFrame" title="Campaign microsite preview"></iframe><div id="cmHotspots" class="campaign-hotspot-layer"></div></div></section>
+    <aside class="campaign-editor-panel"><div class="campaign-panel-empty" id="cmPanelEmpty"><h3>Edit your campaign</h3><p>Click any section in the preview to edit it.</p><div class="campaign-editor-summary" id="cmSummary"></div></div><div id="cmPanelContent" hidden></div></aside>
+  </div>
+</div>
+</main></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260826-standalone-campaign-product"></script>
+<script src="assets/js/campaign-editor-stage2.js?v=20260826-stage4c-publishing"></script>
+</body></html>
