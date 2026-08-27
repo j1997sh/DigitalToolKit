@@ -1149,3 +1149,6 @@ table tbody tr:hover{background:#f8fbfe!important}
 /* Website public design variants */
 .pub-template-editorial .pub-hero{background:#f4f1ea!important;color:var(--navy)!important}.pub-template-editorial .pub-hero h1{max-width:760px}.pub-template-editorial .pub-roundel{border-radius:0}.pub-template-action .pub-hero{background:var(--blue)!important}.pub-template-action .pub-priority-card{border-top:6px solid var(--navy)}.pub-template-modern .pub-header{border-bottom:1px solid #dfe6ec}.pub-template-modern .pub-hero{background:#fff!important;color:var(--navy)!important}.pub-template-modern .pub-hero h1{font-size:clamp(48px,7vw,88px)}.pub-template-modern .pub-roundel{border-radius:0;background:var(--navy)}
 @media(max-width:1000px){.hq-template-grid,.local-library-grid{grid-template-columns:1fr 1fr}}@media(max-width:700px){.hq-template-grid,.local-library-grid,.two-col-form{grid-template-columns:1fr}}
+
+/* Stage 6 QA: keep workspace navigation compact */
+.side-nav a[href="library.html"]{display:none}.campaign-admin-actions{margin-top:10px;flex-wrap:wrap}
