@@ -70,20 +70,20 @@
   function render(){
     message.innerHTML='';
     grid.innerHTML=campaigns.length
-      ? campaigns.map(c=>`<article class="campaign-card">
-          <span class="status-chip ${c.status==='published'?'published':'draft'}">${c.status==='published'?'Published':'Draft'}</span>
-          <h3>${esc(c.name)}</h3>
-          <p class="muted">${c.supporter_count||0} supporters${c.survey_id?' · Survey linked':''}</p>
-          <div class="library-card-actions">
-            <a class="btn small" href="campaign-overview.html?id=${c.id}">Manage</a>
-            <a class="btn secondary small" href="campaign-editor.html?id=${c.id}">Edit microsite</a>
-            <a class="btn secondary small" href="creative-editor.html?template=campaign&campaign=${c.id}">Create graphic</a>
+      ? campaigns.map(c=>`<article class="workspace-management-card campaign-management-card">
+          <div class="workspace-management-main">
+            <div><span class="status-chip ${c.status==='published'?'published':'draft'}">${c.status==='published'?'Published':'Draft'}</span><h3>${esc(c.name)}</h3><p>${c.supporter_count||0} supporter${Number(c.supporter_count||0)===1?'':'s'}${c.survey_id?' · Survey linked':''}</p></div>
+            <div class="workspace-management-state"><small>Campaign page</small><strong>${c.status==='published'?'Live':'Draft'}</strong></div>
+          </div>
+          <div class="workspace-management-actions">
+            <a class="btn small" href="campaign-overview.html?id=${c.id}">Manage campaign</a>
+            <a class="btn light small" href="campaign-editor.html?id=${c.id}">Edit page</a>
+            <a class="btn light small" href="creative-editor.html?template=campaign&campaign=${c.id}">Create graphic</a>
             <button class="btn danger-outline small" type="button" data-delete-campaign="${c.id}">Delete</button>
           </div>
         </article>`).join('')
-      : `<div class="empty-state-card">
-          <h3>No campaigns yet</h3>
-          <p>Create a standalone campaign microsite.</p>
+      : `<div class="workspace-empty-state">
+          <div><h3>No campaigns yet</h3><p>Create your first local campaign page when there is an issue you want residents to back.</p></div>
           <a class="btn" href="campaign-create.html">Create campaign</a>
         </div>`;
     bindActions();

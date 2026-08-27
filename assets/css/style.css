@@ -1243,3 +1243,102 @@ table tbody tr:hover{background:#f8fbfe!important}
  .home-primary-grid-v2,.home-secondary-grid-v2{grid-template-columns:1fr}
  .home-action-card-v2{min-height:210px}
 }
+
+/* Stage 9A — unified local workspace visual system */
+.workspace-index .app-main{background:#f3f6f9;min-height:100vh}
+.workspace-index .app-topbar{height:64px;justify-content:flex-end;padding:0 30px}
+.workspace-index .app-topbar>h1{display:none}
+.workspace-index .app-content{max-width:none;width:100%;margin:0;padding:32px 34px 40px}
+.workspace-index .mobile-admin-bar,.workspace-index .mobile-admin-note{margin-bottom:18px}
+.workspace-index .page-intro{align-items:center;margin-bottom:24px}
+.workspace-index .page-intro h2{font-size:42px;line-height:1;letter-spacing:-.045em;margin:0 0 8px}
+.workspace-index .page-intro p{font-size:16px;line-height:1.4}
+.workspace-index .panel,.workspace-index .table-card,.workspace-index .settings-card{border:1px solid #d5dfe8;box-shadow:none}
+.workspace-index .panel{padding:22px}
+.workspace-index .panel h3{font-size:21px}
+.workspace-index .btn{border-radius:4px}
+.btn.light{background:#d7ecff;color:#08254a;border:1px solid #b9ddfb}
+.btn.light:hover{background:#c9e5fc}
+.workspace-index .btn.secondary{background:#fff}
+.workspace-index .status-chip{border-radius:4px;padding:6px 9px;font-weight:900}
+
+/* Shared management cards */
+.workspace-management-card{background:#fff;border:1px solid #d5dfe8;padding:20px;display:grid;gap:17px}
+.workspace-management-main{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start}
+.workspace-management-main h3{font-size:27px;line-height:1.05;margin:9px 0 5px}
+.workspace-management-main p{margin:0;color:var(--muted)}
+.workspace-management-state{text-align:right;display:grid;gap:3px}
+.workspace-management-state small{color:var(--muted)}
+.workspace-management-state strong{font-size:16px}
+.workspace-management-actions{display:flex;gap:8px;flex-wrap:wrap;padding-top:15px;border-top:1px solid var(--line)}
+.workspace-empty-state{width:100%;min-height:190px;background:#fff;border:1px dashed #b9c8d6;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.workspace-empty-state h3{font-size:28px;margin:0 0 8px}
+.workspace-empty-state p{max-width:650px;margin:0;color:var(--muted);font-size:15px;line-height:1.45}
+
+/* Campaigns / surveys */
+.workspace-index .campaign-grid,.workspace-index .survey-library-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.workspace-index .campaign-card,.workspace-index .survey-card{width:auto;max-width:none}
+.workspace-index .survey-library-grid{max-width:none}
+
+/* Websites */
+.workspace-index .website-manager-list{gap:12px}
+.workspace-index .website-manager-card{padding:20px}
+.workspace-index .website-manager-main h3{font-size:27px}
+.workspace-index .website-manager-actions .btn.secondary{background:#d7ecff;border-color:#b9ddfb}
+
+/* Creative */
+.workspace-index .creative-template-grid-varied{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.workspace-index .creative-template-card{min-height:165px;padding:20px;background:#fff;border:1px solid #d5dfe8;border-left:7px solid var(--blue);display:flex;flex-direction:column;justify-content:space-between}
+.workspace-index .creative-template-card strong{font-size:22px}
+.workspace-index .creative-template-card span{font-size:14px;line-height:1.4;color:var(--muted)}
+.workspace-index .template-photo-statement{background:linear-gradient(145deg,#e6edf3 0 50%,#08254a 50%);color:#fff}
+.workspace-index .template-photo-statement span{color:rgba(255,255,255,.76)}
+.workspace-index .creative-history-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.workspace-index .saved-graphic-card{border:1px solid #d5dfe8}
+
+/* People — data stays a table, just cleaner */
+.workspace-index #stage2PeopleFilters{background:#fff;border:1px solid #d5dfe8;padding:16px;margin-bottom:14px}
+.workspace-index .people-filter-row,.workspace-index .filter-row{gap:10px}
+.workspace-index .table-card{overflow:hidden;background:#fff}
+.workspace-index .table-card table{border-collapse:collapse}
+.workspace-index .table-card thead{background:#f7f9fb}
+.workspace-index .table-card th{font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.workspace-index .table-card td{padding-top:18px;padding-bottom:18px}
+.workspace-index .tag,.workspace-index .people-tag{background:#eef4f8;border:1px solid #d5e0e8;border-radius:2px}
+
+/* Analytics */
+.workspace-index .analytics-summary-panel{padding:24px}
+.workspace-index .performance-kpis{gap:12px}
+.workspace-index .performance-kpis>*{border:1px solid #d5dfe8;background:#fff}
+.workspace-index .analytics-source-grid{gap:14px}
+
+/* Domains / integrations / settings */
+.workspace-index .domain-stage3-grid,.workspace-index .integration-grid,.workspace-index .settings-grid{gap:14px}
+.workspace-index .domain-card,.workspace-index .integration-card,.workspace-index .settings-card{background:#fff}
+.workspace-index .integration-flow-panel{margin-top:16px}
+.workspace-index .integration-flow-row b{color:#8aa0b5}
+.workspace-index .settings-grid{grid-template-columns:1fr 1fr}
+
+/* Dashboard stays information-led but shares visual system */
+.workspace-index .kpi-grid{gap:12px}
+.workspace-index .card.kpi{border:1px solid #d5dfe8;box-shadow:none}
+.workspace-index .dashboard-grid{gap:14px}
+
+/* Library */
+.workspace-index .local-library-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.workspace-index .library-resource-card{border:1px solid #d5dfe8;padding:20px}
+
+@media(max-width:1050px){
+ .workspace-index .creative-template-grid-varied,.workspace-index .creative-history-grid,.workspace-index .local-library-grid{grid-template-columns:1fr 1fr}
+ .workspace-index .settings-grid{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+ .workspace-index .app-content{padding:22px 16px 30px}
+ .workspace-index .app-topbar{padding:0 16px}
+ .workspace-index .page-intro{display:grid;align-items:start}
+ .workspace-index .page-intro h2{font-size:36px}
+ .workspace-management-main{grid-template-columns:1fr}
+ .workspace-management-state{text-align:left}
+ .workspace-empty-state{display:grid;min-height:0}
+ .workspace-index .creative-template-grid-varied,.workspace-index .creative-history-grid,.workspace-index .local-library-grid{grid-template-columns:1fr}
+}
