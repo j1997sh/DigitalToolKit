@@ -25,5 +25,5 @@
     <div class="website-manager-meta"><span><b>${n}</b> News</span><span><b>${e}</b> Events</span><span><b>${w.has_unpublished_changes?'Yes':'No'}</b> Draft changes</span></div>
     <div class="website-manager-actions"><a class="btn small" href="website-overview.html?id=${w.id}">Manage website</a><a class="btn light small" href="editor.html?site=${encodeURIComponent(w.id)}">Edit</a><a class="btn light small" href="site-content.html?website=${w.id}">News & events</a></div>
    </article>`
- }).join('')+`<article class="website-manager-create"><div><h3>Create another website</h3><p>Set up another candidate or local campaign site under this account.</p></div><a class="btn" href="website-create.html">Create website</a></article>`;
+ }).join('')+`<article class="website-manager-create"><div><h3>Create another website</h3><p>Set up another candidate or local campaign site under this account.</p></div><a class="btn light" href="website-create.html">Create website</a></article>`;
 })();

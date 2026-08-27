@@ -25,7 +25,7 @@ box.innerHTML=`<div class="panel-head"><div><h3>Publishing</h3><p class="muted">
  <a class="btn secondary" href="${previewUrl}">Preview draft</a>
  ${live?`<a class="btn secondary" target="_blank" href="${liveUrl}">View live</a><button class="btn danger-outline" id="stage4cUnpublish">Unpublish</button>`:''}
 </div>
-<div class="stage4c-url-box"><span>Public path</span><code>${esc(cleanPublicPath)}</code><small>This is the clean route the eventual host/router will resolve. GitHub Pages uses the 404 fallback router for clean-route testing. A production public host will serve this route directly.</small></div>
+<div class="stage4c-url-box"><span>Public path</span><code>${esc(cleanPublicPath)}</code><small>Your public website address.</small></div>
 <div class="publish-history-list">${deployments.length?deployments.slice(0,10).map(d=>`<div class="publish-history-row"><div><strong>${d.is_live?'Live · ':''}Version ${d.version_number}</strong><small>${new Date(d.published_at).toLocaleString()}${d.unpublished_at?' · superseded':''}</small></div>${d.is_live?'<span class="status-chip published">Live</span>':`<button class="btn secondary small" data-rollback="${d.id}">Make live</button>`}</div>`).join(''):'<div class="empty-state-card compact"><p>No published versions yet.</p></div>'}</div>`;
 root.appendChild(box);
 stage4cPublish.onclick=async()=>{stage4cPublish.disabled=true;stage4cPublish.textContent='Publishing…';const r=await sb.rpc('publish_local_entity',{p_entity_type:entityType,p_entity_id:id});if(r.error){stage4cPublish.textContent='Publish failed';return}location.reload()};

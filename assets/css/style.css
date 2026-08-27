@@ -1342,3 +1342,66 @@ table tbody tr:hover{background:#f8fbfe!important}
  .workspace-empty-state{display:grid;min-height:0}
  .workspace-index .creative-template-grid-varied,.workspace-index .creative-history-grid,.workspace-index .local-library-grid{grid-template-columns:1fr}
 }
+
+/* Stage 9B — product polish and QA */
+.workspace-index .app-topbar:empty{display:none}
+.workspace-index .app-topbar:not(:has(*)){display:none}
+.workspace-index .app-topbar{min-height:64px}
+.workspace-index .app-topbar .btn.light{background:#d7ecff;border-color:#b9ddfb}
+
+/* Keep management actions consistent */
+.workspace-management-actions .btn:not(.danger-outline):not(.danger){min-width:112px}
+.workspace-index .library-card-actions{display:flex;gap:8px;flex-wrap:wrap}
+.workspace-index .library-card-actions .btn.secondary{background:#d7ecff;border-color:#b9ddfb;color:#08254a}
+
+/* Empty and loading states */
+.workspace-index .empty-state-card{max-width:none;width:100%;min-height:160px;padding:28px;border:1px dashed #b9c8d6;background:#fff}
+.workspace-index .no-results{padding:28px;color:var(--muted);text-align:center}
+.workspace-index .state-banner{margin-bottom:16px;border-radius:3px}
+
+/* People/filter resilience */
+.workspace-index #stage2PeopleFilters{overflow:hidden}
+.workspace-index #stage2PeopleFilters input,
+.workspace-index #stage2PeopleFilters select{min-height:44px}
+.workspace-index .table-card{overflow-x:auto}
+.workspace-index .table-card table{min-width:880px;width:100%}
+
+/* Creative consistency */
+.workspace-index .creative-history-grid .workspace-empty-state{grid-column:1/-1}
+.workspace-index .saved-graphic-card-body .library-card-actions{margin-top:14px}
+
+/* Cleaner integrations flow without decorative arrows */
+.polished-flow{display:grid!important;grid-template-columns:repeat(4,1fr);gap:0!important;border:1px solid #d5dfe8;background:#fff}
+.polished-flow span{position:relative;padding:16px;text-align:center;font-weight:800;border-right:1px solid #d5dfe8}
+.polished-flow span:last-child{border-right:0}
+
+/* Status vocabulary */
+.status-chip.published{background:#e9f6ee;color:#17663b}
+.status-chip.draft{background:#fff4d8;color:#996b00}
+.status-chip.archived{background:#eef1f4;color:#596979}
+
+/* Destructive actions are visually subordinate */
+.btn.danger-outline{background:#fff;color:#a22a20;border-color:#e5aaa4}
+.btn.danger-outline:hover{background:#fff4f3}
+
+/* Mobile QA */
+@media(max-width:800px){
+ .workspace-index .app-topbar{height:auto;min-height:58px;padding:10px 16px;flex-wrap:wrap;gap:8px}
+ .workspace-index .app-topbar>div{width:100%;justify-content:flex-start!important;flex-wrap:wrap}
+ .workspace-index .global-search-wrap{width:100%}
+ .workspace-index .global-search-input{width:100%}
+ .workspace-index .page-intro .button-row,.workspace-index .website-manager-actions,.workspace-management-actions{width:100%}
+ .workspace-index .page-intro .btn,.workspace-index .website-manager-actions .btn,.workspace-management-actions .btn{min-height:42px}
+ .workspace-index #stage2PeopleFilters{overflow-x:auto;padding-bottom:12px}
+ .workspace-index #stage2PeopleFilters>div{min-width:720px}
+ .polished-flow{grid-template-columns:1fr 1fr}
+ .polished-flow span:nth-child(2){border-right:0}
+ .polished-flow span{border-bottom:1px solid #d5dfe8}
+ .polished-flow span:nth-last-child(-n+2){border-bottom:0}
+}
+@media(max-width:520px){
+ .workspace-index .page-intro .btn,.workspace-index .website-manager-actions .btn,.workspace-management-actions .btn{width:100%;justify-content:center}
+ .polished-flow{grid-template-columns:1fr}
+ .polished-flow span{border-right:0!important;border-bottom:1px solid #d5dfe8!important}
+ .polished-flow span:last-child{border-bottom:0!important}
+}
