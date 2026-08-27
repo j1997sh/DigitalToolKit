@@ -18,7 +18,7 @@ window.cpSupabase = window.supabase.createClient(
 /* Stage 8D: shared local Home navigation */
 (function(){
   function addHomeNav(){
-    document.querySelectorAll('.app-sidebar .side-nav').forEach(nav=>{
+    document.querySelectorAll('.app-sidebar nav.side-nav').forEach(nav=>{
       if(nav.querySelector('a[href="home.html"]'))return;
       const a=document.createElement('a');a.href='home.html';a.textContent='Home';
       const dash=nav.querySelector('a[href="dashboard.html"]');

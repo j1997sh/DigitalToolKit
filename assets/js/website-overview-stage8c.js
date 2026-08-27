@@ -27,16 +27,16 @@
    </div>
    <div class="website-command-actions">
      <a class="website-job-card primary-job" href="${editUrl}">
-       <span class="website-job-icon">01</span><div><strong>Edit website</strong><small>Homepage, about, priorities and images</small></div><b>Open →</b>
+       <div><strong>Edit website</strong><small>Homepage, about, priorities and images</small></div><span class="website-job-cta">Open</span>
      </a>
      <a class="website-job-card" href="${contentUrl}">
-       <span class="website-job-icon">02</span><div><strong>News & events</strong><small>Publish local updates and upcoming events</small></div><b>Open →</b>
+       <div><strong>News & events</strong><small>Publish local updates and upcoming events</small></div><span class="website-job-cta">Open</span>
      </a>
      <a class="website-job-card" href="campaigns.html">
-       <span class="website-job-icon">03</span><div><strong>Campaigns</strong><small>Create and manage local issue campaigns</small></div><b>Open →</b>
+       <div><strong>Campaigns</strong><small>Create and manage local issue campaigns</small></div><span class="website-job-cta">Open</span>
      </a>
      <a class="website-job-card" href="${previewUrl}">
-       <span class="website-job-icon">04</span><div><strong>Preview</strong><small>Check the current draft before publishing</small></div><b>Open →</b>
+       <div><strong>Preview</strong><small>Check the current draft before publishing</small></div><span class="website-job-cta">Open</span>
      </a>
    </div>
  </section>

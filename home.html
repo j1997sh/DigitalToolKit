@@ -1,5 +1,5 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Home | Campaign Platform</title><link rel="stylesheet" href="assets/css/style.css?v=20260827-stage8d-home"></head>
-<body class="app-body"><div class="app-shell"><aside class="app-sidebar">
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Home | Campaign Platform</title><link rel="stylesheet" href="assets/css/style.css?v=20260827-stage8e2-hard-refresh"></head>
+<body class="app-body home-page"><div class="app-shell"><aside class="app-sidebar">
       <div class="brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Workspace</small></span></div>
       <div class="workspace-select">
         <strong id="sidebarSiteName">Joe Bloggs</strong><small id="sidebarSiteMeta">Bloggs Ward</small>
@@ -9,24 +9,41 @@
         <div class="user-chip"><span class="avatar">JB</span><span><strong>Joe Bloggs</strong><small>Signed in</small></span></div>
         <a class="side-nav logout-link" style="padding:10px 12px;display:block" href="login.html" id="logoutLink">Log out</a>
       </div>
-    </aside><main class="app-main"><header class="app-topbar"><div><small class="app-topbar-kicker">Workspace</small><h1>Home</h1></div><a class="btn secondary small" href="dashboard.html">Open dashboard</a></header><div class="app-content">
-<section class="home-welcome"><div><h2 id="homeGreeting">Your campaign</h2><p>What would you like to do?</p></div><div id="homeReadyState"></div></section>
-<div class="home-primary-grid">
-<a class="home-action-card home-action-featured" id="homeWebsite" href="websites.html"><span class="home-card-number">01</span><div><h3>My website</h3><p>Edit your site, publish local news and events, and preview what residents will see.</p></div><strong>Manage website →</strong></a>
-<a class="home-action-card" href="campaigns.html"><span class="home-card-number">02</span><div><h3>Campaigns</h3><p>Create and manage local issue campaigns and see who is backing them.</p></div><strong>Open campaigns →</strong></a>
-<a class="home-action-card" href="people.html"><span class="home-card-number">03</span><div><h3>People</h3><p>View supporters, volunteers and the people taking action locally.</p></div><strong>Open people →</strong></a>
-<a class="home-action-card" href="creative.html"><span class="home-card-number">04</span><div><h3>Creative</h3><p>Make campaign graphics using approved designs and your own content.</p></div><strong>Make a graphic →</strong></a>
-</div>
-<div class="home-secondary-grid">
-<a class="home-secondary-card" href="surveys.html"><div><h3>Surveys</h3><p>Ask residents what matters and view responses.</p></div><span>Open →</span></a>
-<a class="home-secondary-card" href="analytics.html"><div><h3>Analytics</h3><p>See which activity and channels are working.</p></div><span>Open →</span></a>
-<a class="home-secondary-card" href="dashboard.html"><div><h3>Dashboard</h3><p>See recent campaign activity and performance.</p></div><span>Open →</span></a>
-<a class="home-secondary-card" href="settings.html"><div><h3>Manage account</h3><p>Domains, integrations and campaign settings.</p></div><span>Open →</span></a>
-</div>
+    </aside><main class="app-main home-main"><div class="home-canvas">
+<section class="home-welcome-v2">
+  <div><h1 id="homeGreeting">Welcome.</h1><p>What would you like to do?</p></div>
+  <div class="home-welcome-actions"><span id="homeReadyState"></span><a class="btn secondary" href="dashboard.html">Dashboard</a></div>
+</section>
+
+<section class="home-primary-grid-v2">
+  <a class="home-action-card-v2 featured" id="homeWebsite" href="websites.html">
+    <div><h2>My website</h2><p>Edit your site, publish local news and events, and preview what residents will see.</p></div>
+    <span class="home-card-cta">Manage website</span>
+  </a>
+  <a class="home-action-card-v2" href="campaigns.html">
+    <div><h2>Campaigns</h2><p>Create and manage local issue campaigns and see who is backing them.</p></div>
+    <span class="home-card-cta">Open campaigns</span>
+  </a>
+  <a class="home-action-card-v2" href="people.html">
+    <div><h2>People</h2><p>View supporters, volunteers and the people taking action locally.</p></div>
+    <span class="home-card-cta">Open people</span>
+  </a>
+  <a class="home-action-card-v2" href="creative.html">
+    <div><h2>Creative</h2><p>Make campaign graphics using approved designs and your own content.</p></div>
+    <span class="home-card-cta">Make a graphic</span>
+  </a>
+</section>
+
+<section class="home-secondary-grid-v2">
+  <a class="home-secondary-card-v2" href="surveys.html"><div><h3>Surveys</h3><p>Ask residents what matters and view responses.</p></div><span class="home-secondary-cta">Open</span></a>
+  <a class="home-secondary-card-v2" href="analytics.html"><div><h3>Analytics</h3><p>See which activity and channels are working.</p></div><span class="home-secondary-cta">Open</span></a>
+  <a class="home-secondary-card-v2" href="dashboard.html"><div><h3>Dashboard</h3><p>See recent campaign activity and performance.</p></div><span class="home-secondary-cta">Open</span></a>
+  <a class="home-secondary-card-v2" href="settings.html"><div><h3>Manage account</h3><p>Domains, integrations and campaign settings.</p></div><span class="home-secondary-cta">Open</span></a>
+</section>
 </div></main></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/js/supabase-config.js?v=20260827-stage8d-home"></script>
-<script src="assets/js/app.js?v=20260827-stage8d-home"></script>
-<script src="assets/js/supabase-backend.js?v=20260827-stage8d-home"></script>
-<script src="assets/js/home-stage8d.js?v=20260827-stage8d-home"></script>
+<script src="assets/js/supabase-config.js?v=20260827-stage8e2-hard-refresh"></script>
+<script src="assets/js/app.js?v=20260827-stage8e2-hard-refresh"></script>
+<script src="assets/js/supabase-backend.js?v=20260827-stage8e2-hard-refresh"></script>
+<script src="assets/js/home-stage8d.js?v=20260827-stage8e2-hard-refresh"></script>
 </body></html>

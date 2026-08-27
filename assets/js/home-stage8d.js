@@ -17,7 +17,7 @@
    homeReadyState.innerHTML=`<span class="home-state-chip ${w.publishing_state==='live'?'live':'draft'}">${state}</span>`;
  }else{
    homeWebsite.href='website-create.html';
-   homeWebsite.querySelector('strong').textContent='Create website →';
+   homeWebsite.querySelector('.home-card-cta').textContent='Create website';
    homeReadyState.innerHTML='<span class="home-state-chip draft">No website yet</span>';
  }
  const secondary=document.querySelectorAll('.home-secondary-card');

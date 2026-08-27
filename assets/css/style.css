@@ -1171,3 +1171,75 @@ table tbody tr:hover{background:#f8fbfe!important}
 /* Stage 8D local Home */
 .home-welcome{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:20px}.home-welcome h2{font-size:38px;line-height:1;margin:0 0 8px}.home-welcome p{margin:0;color:var(--muted);font-size:16px}.home-state-chip{display:inline-flex;padding:8px 11px;font-size:12px;font-weight:900;border:1px solid var(--line);background:#fff}.home-state-chip.live{border-left:5px solid #177245}.home-state-chip.draft{border-left:5px solid #d69e00}.home-primary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.home-action-card{min-height:225px;background:#fff;border:1px solid var(--line);padding:20px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:var(--navy)}.home-action-card:hover{border-color:var(--blue);transform:translateY(-1px)}.home-action-featured{background:var(--navy);color:#fff;border-color:var(--navy)}.home-card-number{font-size:11px;font-weight:900;opacity:.55}.home-action-card h3{font-size:25px;margin:0 0 8px}.home-action-card p{margin:0;line-height:1.45;opacity:.72}.home-action-card>strong{font-size:13px}.home-secondary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}.home-secondary-card{background:#fff;border:1px solid var(--line);padding:17px;display:flex;justify-content:space-between;gap:12px;min-height:115px;text-decoration:none;color:var(--navy)}.home-secondary-card:hover{border-color:var(--blue)}.home-secondary-card h3{margin:0 0 5px;font-size:17px}.home-secondary-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.35}.home-secondary-card>span{align-self:end;font-weight:900;font-size:12px}.home-count{display:block;margin-top:8px;color:var(--blue);font-weight:800}
 @media(max-width:1100px){.home-primary-grid,.home-secondary-grid{grid-template-columns:1fr 1fr}}@media(max-width:650px){.home-welcome{display:grid;align-items:start}.home-primary-grid,.home-secondary-grid{grid-template-columns:1fr}.home-action-card{min-height:180px}}
+
+/* Stage 8E visual cleanup */
+.app-topbar-kicker,.admin-topbar>div>small{display:none!important}
+.home-page .app-content{max-width:none;width:100%;margin:0;padding:30px 34px 36px}
+.home-page .home-welcome{margin-bottom:24px}
+.home-page .home-primary-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.home-page .home-action-card{min-height:260px;padding:24px}
+.home-page .home-secondary-grid{gap:16px;margin-top:16px}
+.home-page .home-secondary-card{min-height:130px;padding:20px}
+.home-card-number,.website-job-icon{display:none!important}
+.home-card-cta,.website-job-cta,.home-secondary-cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:max-content;min-height:36px;padding:9px 14px;border:0;border-radius:3px;
+  background:#d7ecff;color:#08254a;font-size:13px;font-weight:900;line-height:1;
+}
+.home-action-featured .home-card-cta{background:#d7ecff;color:#08254a}
+.home-secondary-card{align-items:stretch}
+.home-secondary-cta{align-self:flex-end;margin-left:auto}
+.website-job-card{gap:16px}
+.website-job-cta{margin-top:auto}
+.website-job-card.primary-job .website-job-cta{background:#d7ecff;color:#08254a}
+@media(max-width:1100px){
+  .home-page .home-primary-grid,.home-page .home-secondary-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:650px){
+  .home-page .app-content{padding:20px 16px 28px}
+  .home-page .home-primary-grid,.home-page .home-secondary-grid{grid-template-columns:1fr}
+  .home-page .home-action-card{min-height:210px}
+}
+
+/* Stage 8E2 hard visual refresh */
+.app-topbar-kicker,.admin-topbar>div>small{display:none!important}
+
+.home-page .app-main{min-height:100vh;background:#f3f6f9}
+.home-page .home-canvas{width:100%;min-height:100vh;padding:34px 36px 40px}
+.home-welcome-v2{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:0 0 24px}
+.home-welcome-v2 h1{margin:0 0 7px;font-size:46px;line-height:.98;letter-spacing:-.045em}
+.home-welcome-v2 p{margin:0;color:var(--muted);font-size:17px}
+.home-welcome-actions{display:flex;align-items:center;gap:10px}
+
+.home-primary-grid-v2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.home-action-card-v2{min-height:245px;padding:26px;background:#fff;border:1px solid var(--line);color:var(--navy);text-decoration:none;display:flex;flex-direction:column;justify-content:space-between}
+.home-action-card-v2:hover{border-color:var(--blue)}
+.home-action-card-v2.featured{background:var(--navy);border-color:var(--navy);color:#fff}
+.home-action-card-v2 h2{margin:0 0 10px;font-size:31px;letter-spacing:-.035em}
+.home-action-card-v2 p{max-width:590px;margin:0;line-height:1.5;font-size:16px;opacity:.72}
+
+.home-card-cta,.website-job-cta,.home-secondary-cta{display:inline-flex;align-items:center;justify-content:center;width:max-content;min-height:38px;padding:10px 16px;border:1px solid #b9ddfb;border-radius:3px;background:#d7ecff;color:#08254a;font-size:13px;font-weight:900;line-height:1}
+.home-action-card-v2.featured .home-card-cta{background:#d7ecff;color:#08254a}
+
+.home-secondary-grid-v2{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}
+.home-secondary-card-v2{min-height:135px;padding:20px;background:#fff;border:1px solid var(--line);color:var(--navy);text-decoration:none;display:flex;justify-content:space-between;gap:16px}
+.home-secondary-card-v2:hover{border-color:var(--blue)}
+.home-secondary-card-v2 h3{margin:0 0 6px;font-size:18px}
+.home-secondary-card-v2 p{margin:0;color:var(--muted);font-size:13px;line-height:1.4}
+.home-secondary-cta{align-self:flex-end;margin-left:auto}
+
+.home-card-number,.website-job-icon{display:none!important}
+.website-job-cta{margin-top:auto}
+.website-job-card.primary-job .website-job-cta{background:#d7ecff;color:#08254a}
+
+@media(max-width:1000px){
+ .home-primary-grid-v2{grid-template-columns:1fr}
+ .home-secondary-grid-v2{grid-template-columns:1fr 1fr}
+}
+@media(max-width:650px){
+ .home-page .home-canvas{padding:22px 16px 28px}
+ .home-welcome-v2{display:grid;align-items:start}
+ .home-welcome-v2 h1{font-size:38px}
+ .home-primary-grid-v2,.home-secondary-grid-v2{grid-template-columns:1fr}
+ .home-action-card-v2{min-height:210px}
+}
