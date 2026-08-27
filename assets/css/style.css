@@ -1405,3 +1405,14 @@ table tbody tr:hover{background:#f8fbfe!important}
  .polished-flow span{border-right:0!important;border-bottom:1px solid #d5dfe8!important}
  .polished-flow span:last-child{border-bottom:0!important}
 }
+
+/* Admin draft preview actions */
+.admin-account-website-row{align-items:center;gap:18px}
+.admin-inline-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.admin-inline-actions .btn{white-space:nowrap}
+.rollout-site-cell{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+@media(max-width:800px){
+ .admin-account-website-row{display:grid!important}
+ .admin-inline-actions{justify-content:flex-start}
+ .admin-inline-actions .btn{width:100%;justify-content:center}
+}
