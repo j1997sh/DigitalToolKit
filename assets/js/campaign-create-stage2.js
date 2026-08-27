@@ -1,8 +1,8 @@
-(function(){
+(async function(){
   'use strict';
-  const sb=window.cpSupabase,form=document.getElementById('standaloneCampaignCreate'),btn=document.getElementById('campaignCreateSubmit'),msg=document.getElementById('campaignCreateMessage');
+  const sb=window.cpSupabase,form=document.getElementById('standaloneCampaignCreate'),btn=document.getElementById('campaignCreateSubmit'),msg=document.getElementById('campaignCreateMessage'),templateSelect=document.getElementById('campaignCreateTemplate');
   const slugify=s=>String(s||'').toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
-  form.addEventListener('submit',async e=>{
+  const tr=await sb.rpc('local_available_templates',{p_type:'campaign'});const templates=tr.data||[];templateSelect.innerHTML=templates.map(x=>`<option value="${x.id}">${x.name}${x.scope==='organisation'?' · HQ':''}</option>`).join('');form.addEventListener('submit',async e=>{
     e.preventDefault();msg.innerHTML='';
     const name=document.getElementById('campaignCreateName').value.trim();if(!name)return;
     btn.disabled=true;btn.textContent='Creating…';
@@ -20,6 +20,7 @@
       supporter_count:0
     }).select('id').single();
     if(cr.error){msg.innerHTML=`<div class="state-banner error">${cr.error.message}</div>`;btn.disabled=false;btn.textContent='Create campaign';return}
+    if(templateSelect.value){const ar2=await sb.rpc('local_apply_campaign_template',{p_campaign:cr.data.id,p_template:templateSelect.value});if(ar2.error){msg.innerHTML=`<div class="state-banner error">${ar2.error.message}</div>`;btn.disabled=false;btn.textContent='Create campaign';return}}
     sessionStorage.clear();
     location.href='campaign-editor.html?id='+encodeURIComponent(cr.data.id)
   })

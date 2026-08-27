@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>New campaign | Campaign Platform</title>
-<link rel="stylesheet" href="assets/css/style.css?v=20260826-stage5b-security">
+<link rel="stylesheet" href="assets/css/style.css?v=20260826-stage5d-rollouts">
 </head>
 <body class="app-body">
 <div class="app-shell">
@@ -14,7 +14,7 @@
     <a href="dashboard.html">Dashboard</a><a href="analytics.html" data-nav="analytics">Analytics</a>
     <a href="websites.html">Websites</a>
     <a class="active" href="campaigns.html">Campaigns</a>
-    <a href="creative.html">Creative</a>
+    <a href="creative.html">Creative</a><a href="library.html">Library</a>
     <a href="people.html">People</a>
     <a href="surveys.html">Surveys</a>
     <a href="domains.html">Domains</a>
@@ -32,7 +32,7 @@
       <p>A standalone campaign page with its own branding, signup and public URL.</p>
     </div>
     <form id="standaloneCampaignCreate">
-      <label class="field"><span>Campaign name</span><input id="campaignCreateName" placeholder="e.g. Save Winter Fuel" required></label>
+      <label class="field"><span>Campaign name</span><input id="campaignCreateName" placeholder="e.g. Save Winter Fuel" required></label><label class="field"><span>Design template</span><select id="campaignCreateTemplate"></select><small class="field-help">Choose an approved campaign format.</small></label>
       <button class="btn" id="campaignCreateSubmit" type="submit">Create campaign</button>
       <div id="campaignCreateMessage"></div>
     </form>
