@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Website | Campaign Platform HQ</title>
+<link rel="stylesheet" href="assets/css/style.css?v=20260827-stage12-hq-website-editor">
+</head>
+<body class="admin-body">
+<div class="admin-shell">
+<aside class="admin-sidebar">
+<div class="admin-brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Organisation Admin</small></span></div>
+<div class="admin-org-chip"><small>Organisation</small><strong data-admin-org-name>Loading…</strong></div>
+<nav class="admin-nav"><a href="admin-dashboard.html" data-admin-nav="overview">Overview</a><a href="admin-accounts.html" data-admin-nav="accounts">Local accounts</a><a href="admin-rollouts.html" data-admin-nav="rollouts">Election rollouts</a><a href="admin-templates.html" data-admin-nav="templates">Templates</a><a href="admin-content.html" data-admin-nav="content">Content & campaigns</a><a href="admin-performance.html" data-admin-nav="performance">Performance</a><a href="admin-attribution.html" data-admin-nav="attribution">Attribution</a><a href="admin-geography.html" data-admin-nav="geography">Geography</a><a href="admin-data.html" data-admin-nav="data">Supporter data</a><a href="admin-integrations.html" data-admin-nav="integrations">Central CRM</a><a href="admin-activity.html" data-admin-nav="activity">Network activity</a><a href="admin-privacy.html" data-admin-nav="privacy">Privacy</a><a href="admin-security.html" data-admin-nav="security">Security</a><a href="admin-hosting.html" data-admin-nav="hosting">Hosting</a></nav>
+<div class="admin-sidebar-bottom"><a href="dashboard.html">Open local workspace</a><button id="adminLogout" type="button">Log out</button></div>
+</aside>
+<main class="admin-main">
+<header class="admin-topbar">
+  <div><h1 id="hqWebsiteTitle">Website</h1><small id="hqWebsiteMeta">Loading…</small></div>
+  <span class="admin-role-badge" id="adminRoleBadge">Global admin</span>
+</header>
+<div class="admin-content">
+  <div id="hqWebsiteMessage"></div>
+  <div class="hq-website-toolbar">
+    <a class="btn secondary small" id="hqBackAccount" href="admin-accounts.html">Back to account</a>
+    <span class="status-chip draft" id="hqWebsiteStatus">Draft</span>
+    <span class="hq-save-state" id="hqSaveState">Saved</span>
+  </div>
+
+  <div class="hq-editor-grid">
+    <section class="admin-panel hq-editor-controls">
+      <div class="admin-panel-head"><div><h3>Edit website</h3><p>Changes are saved to this candidate's draft. You remain signed in as Global Admin.</p></div></div>
+
+      <label class="field"><span>Candidate name</span><input id="hqCandidateName"></label>
+      <label class="field"><span>Area / ward</span><input id="hqArea"></label>
+      <label class="field"><span>Site slug</span><input id="hqSlug"></label>
+
+      <hr class="hq-editor-divider">
+      <h4>Hero</h4>
+      <label class="field"><span>Headline</span><textarea id="hqHeroHeadline"></textarea></label>
+      <label class="field"><span>Supporting copy</span><textarea id="hqHeroCopy"></textarea></label>
+      <label class="field"><span>Button text</span><input id="hqHeroCta"></label>
+
+      <hr class="hq-editor-divider">
+      <h4>About</h4>
+      <label class="field"><span>Heading</span><input id="hqAboutHeadline"></label>
+      <label class="field"><span>Introduction</span><textarea id="hqAboutLead"></textarea></label>
+      <label class="field"><span>Body</span><textarea id="hqAboutCopy"></textarea></label>
+
+      <hr class="hq-editor-divider">
+      <h4>Priorities</h4>
+      <div id="hqPriorities"></div>
+
+      <hr class="hq-editor-divider">
+      <h4>Branding</h4>
+      <div class="hq-brand-row">
+        <label class="field"><span>Primary</span><input id="hqPrimary" type="color"></label>
+        <label class="field"><span>Accent</span><input id="hqSecondary" type="color"></label>
+      </div>
+
+      <button class="btn" id="hqSaveNow" type="button">Save changes</button>
+    </section>
+
+    <section class="admin-panel hq-preview-panel">
+      <div class="admin-panel-head"><div><h3>Draft preview</h3><p id="hqPreviewLabel">Candidate website</p></div></div>
+      <div class="hq-device-buttons">
+        <button class="btn secondary small active" data-hq-device="desktop">Desktop</button>
+        <button class="btn secondary small" data-hq-device="tablet">Tablet</button>
+        <button class="btn secondary small" data-hq-device="mobile">Mobile</button>
+      </div>
+      <div class="hq-preview-stage desktop" id="hqPreviewStage">
+        <iframe id="hqPreviewFrame" title="Website draft preview"></iframe>
+      </div>
+    </section>
+  </div>
+</div>
+</main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260827-stage12-hq-website-editor"></script>
+<script src="assets/js/admin-shared-stage3c.js?v=20260827-stage12-hq-website-editor"></script>
+<script>window.CP_ADMIN_ACTIVE="accounts";</script>
+<script src="assets/js/admin-website-stage12.js?v=20260827-stage12-hq-website-editor"></script>
+</body>
+</html>
