@@ -238,7 +238,7 @@
           button.disabled=false;button.textContent=old;return;
         }
         sessionStorage.clear();
-        const next=new URLSearchParams(location.search).get('next')||'dashboard.html';
+        const next=new URLSearchParams(location.search).get('next')||'home.html';
         location.href=next;
       },true);
     }
@@ -1001,7 +1001,7 @@
   } else {
     sb.auth.getSession().then(({data:{session}})=>{
       if(pathname==='login.html'&&session){
-        const next=new URLSearchParams(location.search).get('next')||'dashboard.html';
+        const next=new URLSearchParams(location.search).get('next')||'home.html';
         location.replace(next)
       }
     })
