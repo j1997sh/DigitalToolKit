@@ -1,0 +1,1 @@
+(()=>{const id=new URLSearchParams(location.search).get('id');const a=document.getElementById('websiteContentLink');if(a&&id)a.href='site-content.html?website='+encodeURIComponent(id)})();
