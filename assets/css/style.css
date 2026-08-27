@@ -1443,3 +1443,12 @@ table tbody tr:hover{background:#f8fbfe!important}
 /* Rollout CSV campaign microsites */
 .import-campaign-note{display:block;color:#1763a5;font-weight:800;margin-top:3px}
 .rollout-table td .rollout-site-cell small{display:block;color:var(--muted);max-width:180px}
+
+/* Stage 12 — centrally run campaign microsite rollouts */
+.central-rollout-item{align-items:flex-start}
+.central-campaign-sites-table td:first-child strong{display:block}
+.central-campaign-sites-table td:first-child small{display:block;margin-top:3px;color:var(--muted)}
+.central-campaign-sites-table code{font-size:12px;background:#f3f6f9;padding:4px 6px}
+#centralCampaignPreviewPanel .hq-preview-stage{max-width:1100px}
+#centralCampaignPreviewFrame{width:100%;height:650px;border:0;background:#fff}
+@media(max-width:800px){.central-campaign-sites-table{min-width:850px}}

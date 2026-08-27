@@ -1,0 +1,6 @@
+-- Stage 12 central campaign site rollouts.
+-- This migration has been applied to the configured Supabase project.
+-- It creates public.central_campaign_rollouts and public.central_campaign_sites,
+-- plus Global Admin-only RPCs for creating rollouts, importing up to 2,000
+-- localised sites by CSV, listing them and updating their status.
+-- See the project migration history for the deployed function definitions.
