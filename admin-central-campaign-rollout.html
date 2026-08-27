@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Central campaign rollout | Campaign Platform HQ</title><link rel="stylesheet" href="assets/css/style.css?v=20260827-stage12-central-supporters-delete"></head>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Central campaign rollout | Campaign Platform HQ</title><link rel="stylesheet" href="assets/css/style.css?v=20260827-stage13-central-campaign-ops"></head>
 <body class="admin-body"><div class="admin-shell"><aside class="admin-sidebar">
 <div class="admin-brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Organisation Admin</small></span></div>
 <div class="admin-org-chip"><small>Organisation</small><strong data-admin-org-name>Loading…</strong></div>
@@ -9,19 +9,25 @@
 <div class="admin-content">
 <div id="centralCampaignMessage"></div>
 <div class="admin-toolbar">
-  <a class="btn secondary small" href="admin-content.html">Back to content & campaigns</a>
+  <a class="btn secondary small" href="admin-central-campaigns.html">Back to central campaigns</a>
   <button class="btn secondary small" id="downloadCentralCampaignTemplate">Download CSV template</button>
   <label class="btn small file-btn">Import local areas<input id="centralCampaignCsv" type="file" accept=".csv,text/csv" hidden></label>
-  <button class="btn danger-outline small" id="deleteCentralCampaignRollout" type="button">Delete rollout</button>
+  <button class="btn secondary small" id="editCentralCampaignMaster" type="button">Edit master campaign</button>
+  <button class="btn secondary small" id="duplicateCentralCampaignRollout" type="button">Duplicate</button>
+  <button class="btn secondary small" id="exportCentralCampaignSupporters" type="button">Export supporters</button>
+  <button class="btn danger-outline small" id="deleteCentralCampaignRollout" type="button">Delete</button>
 </div>
 <div class="admin-kpi-grid" id="centralCampaignKpis"></div>
+<section class="admin-panel stage13-operations" style="margin-top:16px"><div class="admin-panel-head"><div><h3>Campaign operations</h3><p>Control every localised microsite from HQ.</p></div><span id="centralCampaignRolloutState"></span></div><div class="stage13-operation-grid"><button class="stage13-operation-card" id="bulkPublishCentralSites"><strong>Publish all sites</strong><span>Move every microsite to Live.</span></button><button class="stage13-operation-card" id="bulkDraftCentralSites"><strong>Return all to draft</strong><span>Take every microsite out of Live.</span></button><button class="stage13-operation-card" id="pauseCentralCampaign"><strong>Pause campaign</strong><span>Pause the campaign and live sites.</span></button><button class="stage13-operation-card" id="endCentralCampaign"><strong>End campaign</strong><span>End it but retain historic data.</span></button></div></section>
+
 
 <section class="admin-panel" style="margin-top:16px">
- <div class="admin-panel-head"><div><h3>Localised microsites</h3><p>Every site below is owned centrally by HQ. No candidate account is created.</p></div></div>
+ <div class="admin-panel-head"><div><h3>Localised microsites</h3><p>Every site below is owned centrally by HQ. No candidate account is created.</p></div><div class="stage13-site-filters"><input id="centralSiteSearch" placeholder="Search area or slug"><select id="centralSiteStatusFilter"><option value="">All statuses</option><option value="draft">Draft</option><option value="live">Live</option><option value="paused">Paused</option><option value="ended">Ended</option></select></div></div>
  <div id="centralCampaignSites"></div>
 </section>
 
 
+<section class="admin-panel" style="margin-top:16px"><div class="admin-panel-head"><div><h3>Performance by area</h3><p>See where the campaign is generating the most support.</p></div></div><div class="admin-two-col"><div><h4>Top performing areas</h4><div id="centralTopAreas"></div></div><div><h4>Areas needing attention</h4><div id="centralBottomAreas"></div></div></div></section>
 <section class="admin-panel" style="margin-top:16px">
  <div class="admin-panel-head"><div><h3>Supporters</h3><p>People captured across all localised sites in this centrally run campaign.</p></div></div>
  <div class="performance-table-wrap"><table class="performance-table"><thead><tr><th>Supporter</th><th>Area</th><th>Postcode</th><th>Consent</th><th>Tags</th><th>Date</th></tr></thead><tbody id="centralCampaignSupporters"></tbody></table></div>
@@ -31,9 +37,11 @@
  <div class="hq-preview-stage desktop"><iframe id="centralCampaignPreviewFrame" title="Campaign microsite preview"></iframe></div>
 </section>
 </div></main></div>
+
+<dialog class="domain-native-dialog" id="centralMasterDialog"><div class="domain-native-dialog-inner"><div class="cp-dialog-head"><h3>Edit master campaign</h3><button class="cp-dialog-x" data-close-central-master>×</button></div><form id="centralMasterForm"><label class="field"><span>Campaign title</span><input id="centralMasterTitle" required></label><label class="field"><span>Category</span><input id="centralMasterCategory"></label><label class="field"><span>HQ summary</span><textarea id="centralMasterSummary"></textarea></label><label class="field"><span>Public headline</span><input id="centralMasterHeadline"></label><label class="field"><span>Supporting copy</span><textarea id="centralMasterCopy"></textarea></label><label class="field"><span>Key points (one per line)</span><textarea id="centralMasterPoints"></textarea></label><label class="hq-master-apply"><input id="centralMasterApply" type="checkbox" checked> Apply to every localised microsite</label><div class="cp-dialog-actions"><button class="btn secondary" type="button" data-close-central-master>Cancel</button><button class="btn" type="submit">Save master campaign</button></div></form></div></dialog>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="assets/js/supabase-config.js?v=20260827-stage12-central-campaign-rollouts"></script>
-<script>window.CP_ADMIN_ACTIVE="content";</script>
-<script src="assets/js/admin-shared-stage3c.js?v=20260827-stage12-central-campaign-rollouts"></script>
-<script src="assets/js/admin-central-campaign-rollout-stage12.js?v=20260827-stage12-central-supporters-delete"></script>
+<script>window.CP_ADMIN_ACTIVE="central_campaigns";</script>
+<script src="assets/js/admin-shared-stage3c.js?v=20260827-stage13-central-campaign-ops"></script>
+<script src="assets/js/admin-central-campaign-rollout-stage12.js?v=20260827-stage13-central-campaign-ops"></script>
 </body></html>

@@ -1,0 +1,3 @@
+-- Stage 13 — Central campaign operations.
+-- Applied to the configured Supabase project.
+-- Adds HQ bulk microsite status controls, master campaign updates, rollout lifecycle states, duplication, and performance-by-area RPCs.
