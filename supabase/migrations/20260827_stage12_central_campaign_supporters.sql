@@ -1,0 +1,6 @@
+-- Stage 12 central campaign supporter capture and rollout deletion.
+-- Applied to the configured Supabase project.
+-- Creates central_campaign_supporters, public_central_campaign_support,
+-- org_admin_central_campaign_supporters, org_admin_delete_central_campaign_rollout,
+-- extends central rollout summary with supporter counts, and merges HQ campaign
+-- supporters into org_admin_people_data for the national Supporter data explorer.

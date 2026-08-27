@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Central campaign rollout | Campaign Platform HQ</title><link rel="stylesheet" href="assets/css/style.css?v=20260827-stage12-central-campaign-rollouts"></head>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Central campaign rollout | Campaign Platform HQ</title><link rel="stylesheet" href="assets/css/style.css?v=20260827-stage12-central-supporters-delete"></head>
 <body class="admin-body"><div class="admin-shell"><aside class="admin-sidebar">
 <div class="admin-brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Organisation Admin</small></span></div>
 <div class="admin-org-chip"><small>Organisation</small><strong data-admin-org-name>Loading…</strong></div>
@@ -12,6 +12,7 @@
   <a class="btn secondary small" href="admin-content.html">Back to content & campaigns</a>
   <button class="btn secondary small" id="downloadCentralCampaignTemplate">Download CSV template</button>
   <label class="btn small file-btn">Import local areas<input id="centralCampaignCsv" type="file" accept=".csv,text/csv" hidden></label>
+  <button class="btn danger-outline small" id="deleteCentralCampaignRollout" type="button">Delete rollout</button>
 </div>
 <div class="admin-kpi-grid" id="centralCampaignKpis"></div>
 
@@ -20,6 +21,11 @@
  <div id="centralCampaignSites"></div>
 </section>
 
+
+<section class="admin-panel" style="margin-top:16px">
+ <div class="admin-panel-head"><div><h3>Supporters</h3><p>People captured across all localised sites in this centrally run campaign.</p></div></div>
+ <div class="performance-table-wrap"><table class="performance-table"><thead><tr><th>Supporter</th><th>Area</th><th>Postcode</th><th>Consent</th><th>Tags</th><th>Date</th></tr></thead><tbody id="centralCampaignSupporters"></tbody></table></div>
+</section>
 <section class="admin-panel" style="margin-top:16px" id="centralCampaignPreviewPanel" hidden>
  <div class="admin-panel-head"><div><h3>Draft preview</h3><p id="centralCampaignPreviewLabel"></p></div><button class="btn secondary small" id="closeCentralCampaignPreview">Close</button></div>
  <div class="hq-preview-stage desktop"><iframe id="centralCampaignPreviewFrame" title="Campaign microsite preview"></iframe></div>
@@ -29,5 +35,5 @@
 <script src="assets/js/supabase-config.js?v=20260827-stage12-central-campaign-rollouts"></script>
 <script>window.CP_ADMIN_ACTIVE="content";</script>
 <script src="assets/js/admin-shared-stage3c.js?v=20260827-stage12-central-campaign-rollouts"></script>
-<script src="assets/js/admin-central-campaign-rollout-stage12.js?v=20260827-stage12-central-campaign-rollouts"></script>
+<script src="assets/js/admin-central-campaign-rollout-stage12.js?v=20260827-stage12-central-supporters-delete"></script>
 </body></html>
