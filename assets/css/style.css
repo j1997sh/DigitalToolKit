@@ -1439,3 +1439,7 @@ table tbody tr:hover{background:#f8fbfe!important}
 .hq-preview-stage iframe{display:block;width:100%;height:780px;border:0;background:#fff;box-shadow:0 2px 18px rgba(8,37,74,.08)}
 @media(max-width:1100px){.hq-editor-grid{grid-template-columns:1fr}.hq-editor-controls{position:static;max-height:none}.hq-preview-panel{order:-1}}
 @media(max-width:700px){.hq-website-toolbar{flex-wrap:wrap}.hq-save-state{width:100%;margin-left:0}.hq-preview-stage{padding:8px}.hq-preview-stage iframe{height:650px}}
+
+/* Rollout CSV campaign microsites */
+.import-campaign-note{display:block;color:#1763a5;font-weight:800;margin-top:3px}
+.rollout-table td .rollout-site-cell small{display:block;color:var(--muted);max-width:180px}
