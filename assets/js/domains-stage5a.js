@@ -8,7 +8,7 @@ const el={
  target:document.getElementById('domainTargetId'),formMessage:document.getElementById('domainFormMessage'),submit:document.getElementById('domainSubmit'),
  accountName:document.getElementById('domainAccountName'),accountInitials:document.getElementById('domainAccountInitials'),logout:document.getElementById('domainLogout')
 };
-let account=null,websites=[],campaigns=[],domains=[];
+let account=null,websites=[],campaigns=[],domains=[],hostConfig={};
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 const pageMessage=(text,error=false)=>{el.message.innerHTML=text?`<div class="state-banner ${error?'error':'success'}">${esc(text)}</div>`:''};
 const formMessage=(text,error=false)=>{el.formMessage.innerHTML=text?`<div class="state-banner ${error?'error':'success'}">${esc(text)}</div>`:''};
@@ -57,6 +57,8 @@ function render(){
   </div>
  </article>`).join('');
 
+ el.grid.querySelectorAll('[data-provision]').forEach(b=>b.onclick=async()=>{b.disabled=true;b.textContent='Provisioning…';try{const {data:{session}}=await sb.auth.getSession();const r=await fetch(hostConfig.public_url+'/api/domain-provision',{method:'POST',headers:{'content-type':'application/json','authorization':'Bearer '+session.access_token},body:JSON.stringify({domain_id:b.dataset.provision})});const j=await r.json();if(!r.ok)throw new Error(j.error||'Could not provision domain');pageMessage('Domain sent to Cloudflare Pages. DNS/SSL status may take a few minutes to update.')}catch(e){pageMessage(e.message,true)}finally{b.disabled=false;b.textContent='Provision host'}});
+ el.grid.querySelectorAll('[data-sync-host]').forEach(b=>b.onclick=async()=>{b.disabled=true;b.textContent='Syncing…';try{const {data:{session}}=await sb.auth.getSession();const r=await fetch(hostConfig.public_url+'/api/domain-status',{method:'POST',headers:{'content-type':'application/json','authorization':'Bearer '+session.access_token},body:JSON.stringify({domain_id:b.dataset.syncHost})});const j=await r.json();if(!r.ok)throw new Error(j.error||'Could not sync host');await loadDomains();pageMessage(j.active?'Cloudflare reports this domain active with HTTPS.':'Cloudflare is still provisioning or verifying this domain.')}catch(e){pageMessage(e.message,true)}finally{b.disabled=false;b.textContent='Sync host'}});
  el.grid.querySelectorAll('[data-check]').forEach(b=>b.onclick=()=>verify(domains.find(x=>x.id===b.dataset.check),b));
  el.grid.querySelectorAll('[data-primary]').forEach(b=>b.onclick=async()=>{const r=await sb.rpc('local_set_primary_domain',{p_domain_id:b.dataset.primary});if(r.error)return pageMessage(r.error.message,true);await loadDomains();pageMessage('Primary domain updated.')});
  el.grid.querySelectorAll('[data-redirect]').forEach(b=>b.onclick=async()=>{const d=domains.find(x=>x.id===b.dataset.redirect);const r=await sb.rpc('local_domain_set_canonical_redirect',{p_domain_id:d.id,p_enabled:!d.redirect_to_canonical});if(r.error)return pageMessage(r.error.message,true);await loadDomains()});
@@ -71,16 +73,16 @@ el.form.onsubmit=async e=>{
  if(!host)return formMessage('Enter a domain name.',true);
  if(!el.target.value)return formMessage('Choose a Website or Campaign.',true);
  el.submit.disabled=true;el.submit.textContent='Adding…';
- const r=await sb.rpc('local_connect_domain',{p_hostname:host,p_target_type:el.type.value,p_target_id:el.target.value,p_expected_cname:null,p_include_www:true});
+ let expectedCname=null;try{expectedCname=hostConfig.public_url?new URL(hostConfig.public_url).hostname:null}catch(_){}const r=await sb.rpc('local_connect_domain',{p_hostname:host,p_target_type:el.type.value,p_target_id:el.target.value,p_expected_cname:expectedCname,p_include_www:true});
  el.submit.disabled=false;el.submit.textContent='Add domain';
  if(r.error)return formMessage(r.error.message,true);
  closeDialog();await loadDomains();pageMessage('Domain added. Add the TXT record shown below at your registrar, then check verification.')
 };
 const {data:{session}}=await sb.auth.getSession();if(!session){location.replace('login.html?next=domains.html');return}
 const ar=await sb.from('accounts').select('id,name').limit(1).single();if(ar.error)return pageMessage(ar.error.message,true);account=ar.data;
-const [wr,cr]=await Promise.all([sb.from('websites').select('id,name,area').order('name'),sb.from('campaigns').select('id,name').order('name')]);
+const [wr,cr,hr]=await Promise.all([sb.from('websites').select('id,name,area').order('name'),sb.from('campaigns').select('id,name').order('name'),sb.rpc('local_public_host_config')]);
 if(wr.error||cr.error)return pageMessage((wr.error||cr.error).message,true);
-websites=wr.data||[];campaigns=cr.data||[];
+websites=wr.data||[];campaigns=cr.data||[];hostConfig=hr.data||{};
 el.accountName.textContent=account.name||'Signed in';el.accountInitials.textContent=(account.name||'CP').split(/\s+/).map(x=>x[0]).join('').slice(0,2).toUpperCase();
 el.logout.onclick=async e=>{e.preventDefault();await sb.auth.signOut();location.href='login.html'};
 populateTargets();await loadDomains();

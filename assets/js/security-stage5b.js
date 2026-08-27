@@ -20,9 +20,23 @@ const panel=document.createElement('section');panel.className='panel security-se
 <label class="field"><span>Provider</span><select id="captchaProvider"><option value="turnstile">Cloudflare Turnstile</option></select></label>
 <label class="field"><span>Public site key</span><input id="captchaSiteKey" value="${String(captcha.site_key||'').replace(/"/g,'&quot;')}" placeholder="Add after production host is configured"></label>
 <label class="toggle-row"><input id="captchaEnabled" type="checkbox" ${captcha.enabled?'checked':''} ${captcha.server_verification?'':'disabled'}><span>Require CAPTCHA on public submissions</span></label>
-<p class="muted">The enable switch stays locked until a secret-backed server verifier is connected.</p>
+<p class="muted">The enable switch stays locked until a secret-backed server verifier is connected.</p><button class="btn secondary small" id="checkVerifier" type="button">Check production verifier</button><small class="muted" id="verifierResult"></small>
 </div></div>
 <div class="security-runtime-note"><strong>Already active</strong><span>Database rate limiting, payload size/format validation, action allowlists, duplicate page-view suppression, abuse event logging and security audit logging.</span></div>`;
 host.appendChild(panel);
 saveSecurity.onclick=async()=>{saveSecurity.disabled=true;saveSecurity.textContent='Saving…';const next={...sec,rate_limits:{tracking_per_minute:Math.max(20,Math.min(500,Number(trackLimit.value)||120)),conversion_per_hour:Math.max(2,Math.min(50,Number(conversionLimit.value)||10)),survey_per_hour:Math.max(1,Math.min(30,Number(surveyLimit.value)||6))},bot_filtering:botFiltering.checked,audit_logging:true,captcha:{...captcha,provider:captchaProvider.value,site_key:captchaSiteKey.value.trim(),enabled:captcha.server_verification?captchaEnabled.checked:false}};const rr=await sb.rpc('local_update_security_settings',{p_security:next});saveSecurity.textContent=rr.error?'Save failed':'Saved';setTimeout(()=>{saveSecurity.disabled=false;saveSecurity.textContent='Save'},1000)};
+
+checkVerifier.onclick=async()=>{
+ checkVerifier.disabled=true;verifierResult.textContent='Checking…';
+ try{
+  const hr=await sb.rpc('local_public_host_config');const base=String(hr.data?.public_url||'').replace(/\/+$/,'');
+  if(!base)throw new Error('HQ has not configured the public host yet.');
+  const {data:{session}}=await sb.auth.getSession();
+  const rr=await fetch(base+'/api/security-status',{method:'POST',headers:{'authorization':'Bearer '+session.access_token}});
+  const j=await rr.json();if(!rr.ok)throw new Error(j.error||'Verifier check failed.');
+  verifierResult.textContent=j.server_verification?'Server-side Turnstile verification is connected.':'Turnstile secret is not configured on the public host.';
+  if(j.server_verification){captchaEnabled.disabled=false}
+ }catch(e){verifierResult.textContent=e.message}
+ checkVerifier.disabled=false;
+};
 })();
