@@ -56,9 +56,15 @@ function openChoices(){
  localStorage.removeItem(CONSENT_KEY);renderPrivacyUI()
 }
 async function configure(c){config=c||{};storeTouch();renderPrivacyUI();return config}
+
+function likelyBot(){
+ const ua=String(navigator.userAgent||'').toLowerCase();
+ return navigator.webdriver===true||/(bot|crawler|spider|headless|lighthouse|pagespeed|pingdom|uptimerobot|facebookexternalhit|slurp)/.test(ua);
+}
 async function track(opts={}){
  window.CPAttribution._lastTrack=opts;
  if(!window.cpSupabase||!config)return null;
+ if((config.security?.bot_filtering!==false)&&likelyBot())return {data:null,error:null,filtered:true};
  const consent=getConsent(),mode=config.privacy?.tracking_mode||'standard';
  if(mode==='strict'&&!consent?.analytics)return null;
  const persistent=!!consent?.analytics;
