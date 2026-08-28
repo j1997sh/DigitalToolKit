@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Central campaign rollout | Campaign Platform HQ</title><link rel="stylesheet" href="assets/css/style.css?v=20260828-facebook-ads-bit1"></head>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Central campaign rollout | Campaign Platform HQ</title><link rel="stylesheet" href="assets/css/style.css?v=20260828-facebook-audiences-bit2"></head>
 <body class="admin-body"><div class="admin-shell"><aside class="admin-sidebar">
 <div class="admin-brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Organisation Admin</small></span></div>
 <div class="admin-org-chip"><small>Organisation</small><strong data-admin-org-name>Loading…</strong></div>
@@ -60,7 +60,8 @@
 <label class="field"><span>Special ad category</span><select id="fbSpecialCategory"><option value="issues_elections_politics">Issues, elections or politics</option><option value="none">None</option></select></label>
 <label class="field facebook-ads-wide"><span>Image filename pattern</span><input id="fbImagePattern" value="{{AREA_KEY}}CAMPAIGNIN{{AREA_KEY}}.jpg"><small>Use {{AREA_KEY}}, {{area}} or {{slug}}.</small></label>
 <label class="field facebook-ads-wide"><span>Audience filename pattern</span><input id="fbAudiencePattern" value="{{area_key}}.csv"><small>Used to match your existing audience files to Meta audience IDs/names.</small></label>
-<label class="field facebook-ads-wide"><span>Audience mapping CSV</span><input id="fbAudienceMap" type="file" accept=".csv,text/csv"><small>Accepted: filename,audience_ref OR area,audience_id,audience_name. Meta requires Custom Audiences as ID:Name.</small></label>
+<div class="facebook-audience-library-note facebook-ads-wide"><strong>Audience library is matched automatically</strong><span>Stored constituency audiences from Central campaigns → Facebook audiences are loaded automatically.</span><a href="admin-facebook-audiences.html">Manage audience library</a></div>
+<label class="field facebook-ads-wide"><span>Temporary audience mapping override (optional)</span><input id="fbAudienceMap" type="file" accept=".csv,text/csv"><small>Use only if this batch needs a one-off override. Stored library mappings remain the default.</small></label>
 </div>
 <div class="facebook-ads-preflight" id="facebookAdsPreflight"></div>
 <div class="cp-dialog-actions"><button class="btn secondary" type="button" data-close-facebook-ads>Cancel</button><button class="btn secondary" id="previewFacebookAds" type="button">Check 150-style batch</button><button class="btn" id="downloadFacebookAds" type="submit">Download Facebook CSV</button></div>
@@ -71,5 +72,5 @@
 <script src="assets/js/supabase-config.js?v=20260827-stage12-central-campaign-rollouts"></script>
 <script>window.CP_ADMIN_ACTIVE="central_campaigns";</script>
 <script src="assets/js/admin-shared-stage3c.js?v=20260827-stage14a-global-admin-central-campaign-qa"></script>
-<script src="assets/js/admin-central-campaign-rollout-stage12.js?v=20260828-facebook-ads-bit1"></script>
+<script src="assets/js/admin-central-campaign-rollout-stage12.js?v=20260828-facebook-audiences-bit2"></script>
 </body></html>

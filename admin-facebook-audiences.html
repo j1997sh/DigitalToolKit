@@ -1,0 +1,31 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Facebook audiences | Campaign Platform HQ</title><link rel="stylesheet" href="assets/css/style.css?v=20260828-facebook-audiences-bit2"></head>
+<body class="admin-body"><div class="admin-shell"><aside class="admin-sidebar">
+<div class="admin-brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Organisation Admin</small></span></div>
+<div class="admin-org-chip"><small>Organisation</small><strong data-admin-org-name>Loading…</strong></div>
+<nav class="admin-nav"><a href="admin-dashboard.html" data-admin-nav="overview">Overview</a><a href="admin-accounts.html" data-admin-nav="accounts">Local accounts</a><a href="admin-rollouts.html" data-admin-nav="rollouts">Election rollouts</a><a href="admin-templates.html" data-admin-nav="templates">Templates</a><a href="admin-content.html" data-admin-nav="content">Content & campaigns</a><a href="admin-performance.html" data-admin-nav="performance">Performance</a><a href="admin-attribution.html" data-admin-nav="attribution">Attribution</a><a href="admin-geography.html" data-admin-nav="geography">Geography</a><a href="admin-data.html" data-admin-nav="data">Supporter data</a><a href="admin-integrations.html" data-admin-nav="integrations">Central CRM</a><a href="admin-activity.html" data-admin-nav="activity">Network activity</a><a href="admin-privacy.html" data-admin-nav="privacy">Privacy</a><a href="admin-security.html" data-admin-nav="security">Security</a><a href="admin-hosting.html" data-admin-nav="hosting">Hosting</a></nav>
+<div class="admin-sidebar-bottom"><a href="dashboard.html">Open local workspace</a><button id="adminLogout" type="button">Log out</button></div>
+</aside><main class="admin-main">
+<header class="admin-topbar"><div><h1>Facebook audiences</h1></div><span class="admin-role-badge" id="adminRoleBadge">Global admin</span></header>
+<div class="admin-content"><div id="audienceMessage"></div>
+<section class="admin-intro"><div><h2>Audience library</h2><p>Store constituency-to-Meta Custom Audience mappings once and reuse them across every central campaign.</p></div>
+<div class="button-row"><a class="btn secondary" href="admin-central-campaigns.html">Back to central campaigns</a><button class="btn secondary" id="downloadAudienceTemplate">Download template</button><label class="btn file-btn">Import mappings<input id="audienceCsv" type="file" accept=".csv,text/csv" hidden></label></div></section>
+<div class="admin-kpi-grid" id="audienceKpis"></div>
+<section class="admin-panel"><div class="admin-panel-head"><div><h3>Stored audiences</h3><p>The Facebook ads generator matches these automatically using the constituency/area key.</p></div><input id="audienceSearch" placeholder="Search constituency or audience"></div>
+<div id="audienceList"></div></section>
+</div></main></div>
+<dialog class="domain-native-dialog" id="audienceEditDialog"><div class="domain-native-dialog-inner">
+<div class="cp-dialog-head"><h3>Add audience mapping</h3><button class="cp-dialog-x" data-close-audience>×</button></div>
+<form id="audienceEditForm">
+<label class="field"><span>Constituency / area</span><input id="audienceArea" required placeholder="Birmingham Ladywood"></label>
+<label class="field"><span>Audience source filename</span><input id="audienceFilename" placeholder="birminghamladywood.csv"></label>
+<label class="field"><span>Meta audience ID</span><input id="audienceId" required></label>
+<label class="field"><span>Meta audience name</span><input id="audienceName" required></label>
+<div class="cp-dialog-actions"><button class="btn secondary" type="button" data-close-audience>Cancel</button><button class="btn" type="submit">Save audience</button></div>
+</form></div></dialog>
+<button class="audience-add-fab" id="addAudience" type="button">Add audience</button>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260828-facebook-audiences-bit2"></script>
+<script>window.CP_ADMIN_ACTIVE="central_campaigns";</script>
+<script src="assets/js/admin-shared-stage3c.js?v=20260827-stage14a-global-admin-central-campaign-qa"></script>
+<script src="assets/js/admin-facebook-audiences-stage14d.js?v=20260828-facebook-audiences-bit2"></script></body></html>
