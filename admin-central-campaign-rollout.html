@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Central campaign rollout | Campaign Platform HQ</title><link rel="stylesheet" href="assets/css/style.css?v=20260827-stage14a-global-admin-central-campaign-qa"></head>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Central campaign rollout | Campaign Platform HQ</title><link rel="stylesheet" href="assets/css/style.css?v=20260828-facebook-ads-bit1"></head>
 <body class="admin-body"><div class="admin-shell"><aside class="admin-sidebar">
 <div class="admin-brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Organisation Admin</small></span></div>
 <div class="admin-org-chip"><small>Organisation</small><strong data-admin-org-name>Loading…</strong></div>
@@ -15,6 +15,7 @@
   <button class="btn secondary small" id="editCentralCampaignMaster" type="button">Edit master campaign</button>
   <button class="btn secondary small" id="duplicateCentralCampaignRollout" type="button">Duplicate</button>
   <button class="btn secondary small" id="exportCentralCampaignSupporters" type="button">Export supporters</button>
+  <button class="btn small" id="createFacebookAds" type="button">Create Facebook ads</button>
   <button class="btn danger-outline small" id="deleteCentralCampaignRollout" type="button">Delete</button>
 </div>
 <div class="admin-kpi-grid" id="centralCampaignKpis"></div>
@@ -38,10 +39,37 @@
 </section>
 </div></main></div>
 
+
+<dialog class="domain-native-dialog facebook-ads-dialog" id="facebookAdsDialog"><div class="domain-native-dialog-inner facebook-ads-dialog-inner">
+<div class="cp-dialog-head"><div><h3>Create Facebook ads</h3><p>Generate a Meta Ads Manager bulk-upload CSV from these localised microsites.</p></div><button class="cp-dialog-x" data-close-facebook-ads>×</button></div>
+<form id="facebookAdsForm">
+<div class="facebook-ads-grid">
+<label class="field"><span>Campaign name</span><input id="fbCampaignName" maxlength="35" required></label>
+<label class="field"><span>Short naming label</span><input id="fbCampaignLabel" maxlength="18" placeholder="Farm Tax" required></label>
+<label class="field"><span>Campaign objective</span><select id="fbObjective"><option value="Traffic">Traffic</option><option value="Outcome Leads">Outcome Leads</option><option value="Conversions">Conversions</option></select></label>
+<label class="field"><span>CTA</span><select id="fbCta"><option value="SIGN_UP">Sign Up</option><option value="LEARN_MORE">Learn More</option><option value="DONATE_NOW">Donate Now</option><option value="CONTACT_US">Contact Us</option></select></label>
+<label class="field facebook-ads-wide"><span>Primary text</span><textarea id="fbBody" rows="4" required></textarea></label>
+<label class="field facebook-ads-wide"><span>Headline</span><input id="fbHeadline" maxlength="255" placeholder="Stop the Farm Tax in {{area}}" required></label>
+<label class="field"><span>Budget sits at</span><select id="fbBudgetLevel"><option value="adset">Ad set</option><option value="campaign">Campaign</option></select></label>
+<label class="field"><span>Daily budget (£)</span><input id="fbDailyBudget" type="number" min="1" step="0.01" value="10" required></label>
+<label class="field"><span>Start</span><input id="fbStart" type="datetime-local"></label>
+<label class="field"><span>End</span><input id="fbEnd" type="datetime-local"></label>
+<label class="field"><span>Facebook Page ID</span><input id="fbPageId" inputmode="numeric" placeholder="Required for Page post ads" required></label>
+<label class="field"><span>Landing page base URL</span><input id="fbBaseUrl" type="url" placeholder="https://campaign.example" required></label>
+<label class="field"><span>Country</span><input id="fbCountry" value="GB" maxlength="2" required></label>
+<label class="field"><span>Special ad category</span><select id="fbSpecialCategory"><option value="issues_elections_politics">Issues, elections or politics</option><option value="none">None</option></select></label>
+<label class="field facebook-ads-wide"><span>Image filename pattern</span><input id="fbImagePattern" value="{{AREA_KEY}}CAMPAIGNIN{{AREA_KEY}}.jpg"><small>Use {{AREA_KEY}}, {{area}} or {{slug}}.</small></label>
+<label class="field facebook-ads-wide"><span>Audience filename pattern</span><input id="fbAudiencePattern" value="{{area_key}}.csv"><small>Used to match your existing audience files to Meta audience IDs/names.</small></label>
+<label class="field facebook-ads-wide"><span>Audience mapping CSV</span><input id="fbAudienceMap" type="file" accept=".csv,text/csv"><small>Accepted: filename,audience_ref OR area,audience_id,audience_name. Meta requires Custom Audiences as ID:Name.</small></label>
+</div>
+<div class="facebook-ads-preflight" id="facebookAdsPreflight"></div>
+<div class="cp-dialog-actions"><button class="btn secondary" type="button" data-close-facebook-ads>Cancel</button><button class="btn secondary" id="previewFacebookAds" type="button">Check 150-style batch</button><button class="btn" id="downloadFacebookAds" type="submit">Download Facebook CSV</button></div>
+</form></div></dialog>
+
 <dialog class="domain-native-dialog" id="centralMasterDialog"><div class="domain-native-dialog-inner"><div class="cp-dialog-head"><h3>Edit master campaign</h3><button class="cp-dialog-x" data-close-central-master>×</button></div><form id="centralMasterForm"><label class="field"><span>Campaign title</span><input id="centralMasterTitle" required></label><label class="field"><span>Category</span><input id="centralMasterCategory"></label><label class="field"><span>HQ summary</span><textarea id="centralMasterSummary"></textarea></label><label class="field"><span>Public headline</span><input id="centralMasterHeadline"></label><label class="field"><span>Supporting copy</span><textarea id="centralMasterCopy"></textarea></label><label class="field"><span>Key points (one per line)</span><textarea id="centralMasterPoints"></textarea></label><label class="hq-master-apply"><input id="centralMasterApply" type="checkbox" checked> Apply to every localised microsite</label><div class="cp-dialog-actions"><button class="btn secondary" type="button" data-close-central-master>Cancel</button><button class="btn" type="submit">Save master campaign</button></div></form></div></dialog>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="assets/js/supabase-config.js?v=20260827-stage12-central-campaign-rollouts"></script>
 <script>window.CP_ADMIN_ACTIVE="central_campaigns";</script>
 <script src="assets/js/admin-shared-stage3c.js?v=20260827-stage14a-global-admin-central-campaign-qa"></script>
-<script src="assets/js/admin-central-campaign-rollout-stage12.js?v=20260827-stage14a-global-admin-central-campaign-qa"></script>
+<script src="assets/js/admin-central-campaign-rollout-stage12.js?v=20260828-facebook-ads-bit1"></script>
 </body></html>

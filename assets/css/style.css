@@ -1464,3 +1464,20 @@ table tbody tr:hover{background:#f8fbfe!important}
 
 /* Stage 14A operation disabled */
 .stage13-operation-card:disabled{cursor:not-allowed;opacity:.48;background:#f5f7f9;border-color:#dfe5eb}
+
+/* Facebook Ads bulk generator — Ads Manager template v2.3 */
+.facebook-ads-dialog-inner{width:min(960px,calc(100vw - 32px));max-height:90vh;overflow:auto}
+.facebook-ads-dialog .cp-dialog-head p{margin:4px 0 0;color:var(--muted)}
+.facebook-ads-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
+.facebook-ads-wide{grid-column:1/-1}
+.facebook-ads-preflight{margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+.facebook-preflight-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.facebook-preflight-kpis>div{border:1px solid var(--line);padding:14px;background:#fff}
+.facebook-preflight-kpis span{display:block;color:var(--muted);font-size:12px;font-weight:800;margin-bottom:4px}
+.facebook-preflight-kpis strong{font-size:23px}
+.facebook-preflight-table{overflow:auto;margin-top:12px}
+.facebook-preflight-table table{width:100%;border-collapse:collapse;font-size:13px}
+.facebook-preflight-table th,.facebook-preflight-table td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.facebook-preflight-table code{font-size:11px;word-break:break-all}
+.facebook-missing{color:#a12828;font-weight:800}
+@media(max-width:760px){.facebook-ads-grid{grid-template-columns:1fr}.facebook-ads-wide{grid-column:auto}.facebook-preflight-kpis{grid-template-columns:1fr 1fr}}
