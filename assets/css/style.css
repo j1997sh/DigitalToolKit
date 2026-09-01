@@ -1491,7 +1491,3 @@ table tbody tr:hover{background:#f8fbfe!important}
 #audienceList code{font-size:12px}
 #audienceList td small{display:block;color:var(--muted);margin-top:3px}
 @media(max-width:760px){.audience-add-fab{right:16px;bottom:16px}}
-
-/* Facebook Creative Library — Bit 3 */
-#creativeList td small{display:block;color:var(--muted);margin-top:3px}
-#creativeList code{font-size:12px}
