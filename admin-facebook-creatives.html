@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Facebook creatives | Campaign Platform HQ</title><link rel="stylesheet" href="assets/css/style.css?v=20260828-facebook-creatives-bit3"></head>
+<body class="admin-body"><div class="admin-shell"><aside class="admin-sidebar">
+<div class="admin-brand"><span class="brand-mark">CP</span><span><strong>Campaign Platform</strong><small>Organisation Admin</small></span></div>
+<div class="admin-org-chip"><small>Organisation</small><strong data-admin-org-name>Loading…</strong></div>
+<nav class="admin-nav"><a href="admin-dashboard.html" data-admin-nav="overview">Overview</a><a href="admin-accounts.html" data-admin-nav="accounts">Local accounts</a><a href="admin-rollouts.html" data-admin-nav="rollouts">Election rollouts</a><a href="admin-templates.html" data-admin-nav="templates">Templates</a><a href="admin-content.html" data-admin-nav="content">Content & campaigns</a><a href="admin-performance.html" data-admin-nav="performance">Performance</a><a href="admin-attribution.html" data-admin-nav="attribution">Attribution</a><a href="admin-geography.html" data-admin-nav="geography">Geography</a><a href="admin-data.html" data-admin-nav="data">Supporter data</a><a href="admin-integrations.html" data-admin-nav="integrations">Central CRM</a><a href="admin-activity.html" data-admin-nav="activity">Network activity</a><a href="admin-privacy.html" data-admin-nav="privacy">Privacy</a><a href="admin-security.html" data-admin-nav="security">Security</a><a href="admin-hosting.html" data-admin-nav="hosting">Hosting</a></nav>
+<div class="admin-sidebar-bottom"><a href="dashboard.html">Open local workspace</a><button id="adminLogout" type="button">Log out</button></div>
+</aside><main class="admin-main">
+<header class="admin-topbar"><div><h1>Facebook creatives</h1><small id="creativeCampaignMeta">Central campaign</small></div><span class="admin-role-badge" id="adminRoleBadge">Global admin</span></header>
+<div class="admin-content"><div id="creativeMessage"></div>
+<section class="admin-intro"><div><h2 id="creativeCampaignTitle">Creative library</h2><p>Upload the localised images for this campaign. Filenames are matched automatically to generated microsites by constituency/area name.</p></div>
+<div class="button-row"><a class="btn secondary" id="backToCampaign" href="admin-central-campaigns.html">Back to campaign</a><label class="btn file-btn">Upload images<input id="creativeFiles" type="file" accept="image/png,image/jpeg,image/webp" multiple hidden></label></div></section>
+<div class="admin-kpi-grid" id="creativeKpis"></div>
+<section class="admin-panel"><div class="admin-panel-head"><div><h3>Creative matching</h3><p>One image per localised microsite. Upload names such as BIRMINGHAMLADYWOODCAMPAIGNINBIRMINGHAMLADYWOOD.jpg and the area will be detected.</p></div><input id="creativeSearch" placeholder="Search area or filename"></div>
+<div id="creativeList"></div></section>
+</div></main></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js?v=20260828-facebook-creatives-bit3"></script>
+<script>window.CP_ADMIN_ACTIVE="central_campaigns";</script>
+<script src="assets/js/admin-shared-stage3c.js?v=20260827-stage14a-global-admin-central-campaign-qa"></script>
+<script src="assets/js/admin-facebook-creatives-stage14d.js?v=20260828-facebook-creatives-bit3"></script></body></html>
