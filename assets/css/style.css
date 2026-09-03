@@ -1491,3 +1491,19 @@ table tbody tr:hover{background:#f8fbfe!important}
 #audienceList code{font-size:12px}
 #audienceList td small{display:block;color:var(--muted);margin-top:3px}
 @media(max-width:760px){.audience-add-fab{right:16px;bottom:16px}}
+
+/* Facebook Creative Library — Bit 3 */
+#creativeList td small{display:block;color:var(--muted);margin-top:3px}
+#creativeList code{font-size:12px}
+
+/* Stage 15 — Direct Meta advertising */
+.meta-ads-tabs{display:flex;gap:20px;border-bottom:1px solid #d6e0e9;margin:4px 0 22px;overflow:auto}
+.meta-ads-tabs button{appearance:none;border:0;background:none;padding:0 0 10px;font:inherit;font-weight:800;color:#65778c;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
+.meta-ads-tabs button.active{color:#0d315b;border-bottom-color:#188fe5}
+.meta-ads-panel{display:none}.meta-ads-panel.active{display:block}
+.meta-ads-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.meta-ads-grid .meta-wide{grid-column:1/-1}
+.meta-name-example{margin-top:16px;border:1px solid #dce3e9;background:#f7f9fb;padding:11px 12px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;line-height:1.5}
+.meta-actions,.meta-media-controls{display:flex;gap:10px;align-items:end;flex-wrap:wrap;margin-top:16px}.meta-media-controls .field{min-width:280px;flex:1}
+.meta-health-list{border:1px solid #d6e0e9;background:#fff}.meta-health-row{display:grid;grid-template-columns:90px 180px 1fr;gap:12px;align-items:center;padding:12px 14px;border-bottom:1px solid #e8edf2}.meta-health-row:last-child{border-bottom:0}.meta-health-row>span:last-child{color:#64768a;font-size:13px}
+#metaAudienceResults{margin-top:14px}#metaMediaProgress,#metaConnectionProgress{margin-top:14px}#metaMediaTable{margin-top:16px}#metaMediaTable code{font-size:12px}
+@media(max-width:820px){.meta-ads-grid{grid-template-columns:1fr}.meta-ads-grid .meta-wide{grid-column:auto}.meta-health-row{grid-template-columns:80px 1fr}.meta-health-row>span:last-child{grid-column:1/-1}.meta-media-controls{align-items:stretch}.meta-media-controls .field{min-width:100%}}
