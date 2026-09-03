@@ -1,0 +1,13 @@
+-- Stage 16: duplicate a central campaign while retaining Meta account/Page connection and naming config, but resetting Meta object IDs and performance.
+create or replace function public.org_admin_duplicate_central_campaign_with_meta(p_rollout uuid,p_new_title text)
+returns uuid language plpgsql security definer set search_path=public as $$
+declare v_new uuid; v_org uuid; r public.central_campaign_rollouts%rowtype; cfg jsonb; c record; new_site uuid; conn public.central_campaign_meta_connections%rowtype;
+begin
+ select * into r from public.central_campaign_rollouts where id=p_rollout; if r.id is null or not public.is_org_global_admin(r.organisation_id) then raise exception 'Not authorised'; end if; v_org:=r.organisation_id;
+ insert into public.central_campaign_rollouts(organisation_id,title,category,summary,base_slug,package,status,created_by) values(v_org,coalesce(nullif(trim(p_new_title),''),r.title||' copy'),r.category,r.summary,r.base_slug||'-copy',r.package,'draft',auth.uid()) returning id into v_new;
+ for c in select * from public.central_campaign_sites where rollout_id=p_rollout order by area loop insert into public.central_campaign_sites(rollout_id,organisation_id,area,council,region,postcode,slug,title,headline,supporting_copy,key_points,branding,settings,domain,status) values(v_new,v_org,c.area,c.council,c.region,c.postcode,c.slug||'-copy',c.title,c.headline,c.supporting_copy,c.key_points,c.branding,c.settings,null,'draft') returning id into new_site; end loop;
+ select config into cfg from public.central_campaign_ad_settings where rollout_id=p_rollout and platform='facebook'; if cfg is not null then cfg:=cfg-'body'-'headline'-'description'-'bodyB'-'headlineB'-'descriptionB'; insert into public.central_campaign_ad_settings(rollout_id,organisation_id,platform,config) values(v_new,v_org,'facebook',cfg) on conflict(rollout_id,platform) do update set config=excluded.config,updated_at=now(); end if;
+ select * into conn from public.central_campaign_meta_connections where rollout_id=p_rollout; if conn.rollout_id is not null then insert into public.central_campaign_meta_connections(organisation_id,rollout_id,ad_account_id,page_id,access_token,meta_user_id,meta_user_name,ad_account_name,currency,account_status,graph_version,connected_at,last_checked_at,last_error,metadata) values(v_org,v_new,conn.ad_account_id,conn.page_id,conn.access_token,conn.meta_user_id,conn.meta_user_name,conn.ad_account_name,conn.currency,conn.account_status,conn.graph_version,now(),null,null,conn.metadata); end if;
+ return v_new;
+end $$;
+grant execute on function public.org_admin_duplicate_central_campaign_with_meta(uuid,text) to authenticated; revoke execute on function public.org_admin_duplicate_central_campaign_with_meta(uuid,text) from anon;
