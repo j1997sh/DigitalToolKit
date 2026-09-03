@@ -1510,3 +1510,24 @@ table tbody tr:hover{background:#f8fbfe!important}
 /* Stage 16 — Meta campaign operations suite */
 .meta-preflight-total{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-top:14px;padding:14px 16px;border:1px solid #d8e2eb;background:#f7fafc}.meta-preflight-total span{color:#65778c;font-size:13px}.meta-primary-create{display:flex;align-items:center;gap:14px;margin-top:16px}.meta-primary-create small{color:#65778c}.meta-variant-toggle{display:flex;align-items:center;gap:8px;border:1px solid #d8e2eb;background:#f8fafc;padding:12px 14px}.meta-variant-toggle span{color:#65778c;font-size:13px}.meta-variant-b{margin-top:-4px}.meta-ads-tabs{gap:18px}.meta-ads-tabs button{font-size:14px}.facebook-missing{font-weight:700;color:#8a2f2f}.meta-actions .btn{white-space:nowrap}#metaAreaControls code{font-size:11px}.admin-kpi strong{line-height:1.15}
 @media(max-width:900px){.meta-preflight-total,.meta-primary-create{align-items:flex-start;flex-direction:column}}
+
+/* Stage 17 — consolidated HQ information architecture */
+.admin-nav-consolidated{display:grid;gap:8px;margin-top:24px}
+.admin-nav-consolidated a{font-size:17px;padding:15px 18px;border-left:3px solid transparent}
+.admin-nav-consolidated a.active{border-left-color:#fff}
+.admin-hub-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.admin-hub-card{display:block;border:1px solid #d4dfe8;background:#fff;padding:24px;text-decoration:none;color:#08254a;min-height:180px}
+.admin-hub-card:hover{border-color:#188fe5}
+.admin-hub-card>span{display:block;color:#6d7f93;font-size:13px;font-weight:800;margin-bottom:16px}
+.admin-hub-card>strong{display:block;font-size:22px;line-height:1.15;margin-bottom:10px}
+.admin-hub-card>p{margin:0;color:#64768a;line-height:1.5}
+.admin-hub-card-primary{border-top:5px solid #188fe5;padding-top:20px}
+.advertising-campaign-row{display:flex;justify-content:space-between;gap:24px;padding:20px 0;border-bottom:1px solid #e1e8ee}
+.advertising-campaign-row:last-child{border-bottom:0}
+.advertising-campaign-main{min-width:0;flex:1}
+.advertising-campaign-title{display:flex;gap:12px;align-items:center;margin-bottom:15px}.advertising-campaign-title h3{margin:0;font-size:19px}
+.advertising-campaign-metrics{display:grid;grid-template-columns:repeat(6,minmax(90px,1fr));gap:12px}.advertising-campaign-metrics span{display:grid;gap:3px}.advertising-campaign-metrics small{color:#7b8ca0}.advertising-campaign-metrics strong{font-size:14px}
+.advertising-campaign-actions{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}.advertising-warning{color:#9b5d00;font-weight:800;margin:12px 0 0}
+.admin-inline-links{display:flex;gap:12px;flex-wrap:wrap}.admin-inline-links a{border:1px solid #d4dfe8;background:#fff;padding:11px 14px;font-weight:800;text-decoration:none}
+@media(max-width:1000px){.advertising-campaign-metrics{grid-template-columns:repeat(3,1fr)}.advertising-campaign-row{display:block}.advertising-campaign-actions{margin-top:16px}}
+@media(max-width:760px){.admin-hub-grid{grid-template-columns:1fr}.advertising-campaign-metrics{grid-template-columns:repeat(2,1fr)}}
